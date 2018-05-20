@@ -646,7 +646,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void update2()
-    {
+    {/*
         try
         {
             String value=Varinfo.onconfig.getConfigParams(this, "newcode");
@@ -767,7 +767,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         }
         catch (NumberFormatException e)
-        {}
+        {}*/
     }
 
 	public void web(final Context c)
