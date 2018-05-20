@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="wrap_content"
+	android:layout_width="wrap_content">
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:orientation="vertical"
+		android:gravity="center_horizontal"
+		android:paddingLeft="15dp"
+		android:paddingRight="15dp">
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="坏分数BAD币服务现已关闭\n您的捐赠将支持我们走得更远！\n感谢支持\n视资金情况，我们将日后回归！\n\n喜欢坏分数，1元钱打赏～"
+			android:textColor="#3366FF"
+			android:textSize="13sp"
+			android:textStyle="italic"
+			android:gravity="center_horizontal"
+			android:layout_marginTop="18dp"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="※微信捐赠※"
+			android:textColor="#FF0000"
+			android:textSize="25sp"
+			android:layout_marginTop="10dp"/>
+
+		<Button
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="XYZZ_Hans"
+			android:textColor="#FF5100"
+			android:textStyle="bold"
+			android:textSize="15sp"
+			android:layout_marginTop="5dp"
+			android:id="@+id/KM_wx_1"/>
+
+		<ImageView
+			android:layout_height="150dp"
+			android:layout_width="match_parent"
+			android:src="@drawable/km_hans"/>
+
+		<View
+			android:background="?android:attr/dividerVertical"
+			android:layout_height="3dp"
+			android:layout_width="match_parent"
+			android:layout_marginTop="5dp"
+			android:alpha="1.0"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="※QQ捐赠※"
+			android:textColor="#FF0000"
+			android:textSize="25sp"
+			android:layout_marginTop="10dp"/>
+
+
+
+		<Button
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="QQ:1124390416"
+			android:textColor="#FE7E23"
+			android:textStyle="bold"
+			android:layout_marginTop="5dp"
+			android:id="@+id/KM_qq_2"/>
+
+		<ImageView
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:src="@drawable/km_mj"/>
+
+		<View
+			android:background="?android:attr/dividerVertical"
+			android:layout_height="5dp"
+			android:layout_width="match_parent"
+			android:layout_marginTop="10dp"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="收入用来补贴坏分数服务器托管维护费用\n感谢童鞋们的支持与厚爱😘"
+			android:layout_marginTop="10dp"
+			android:textSize="15sp"
+			android:gravity="center_horizontal"
+			android:textColor="#008080"
+			android:layout_marginBottom="15dp"/>
+
+	</LinearLayout>
+
+</ScrollView>
+

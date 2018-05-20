@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:focusable="true"
+	android:focusableInTouchMode="true">
+
+	<LinearLayout
+		android:id="@+id/ll_banner_login"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal"
+		android:visibility="gone">
+
+	</LinearLayout>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="wrap_content"
+		android:text="当前账号："
+		android:id="@+id/contentloginTextView2"
+		android:layout_marginTop="5dp"
+		android:textStyle="bold|italic"
+		android:layout_below="@id/ll_banner_login"
+		android:textColor="#00958A"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="wrap_content"
+		android:text="未登录"
+		android:id="@+id/nowuser"
+		android:layout_marginTop="5dp"
+		android:layout_toRightOf="@id/contentloginTextView2"
+		android:textStyle="italic"
+		android:paddingRight="5dp"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="wrap_content"
+		android:text="切换账号"
+		android:id="@+id/contentloginTextView1"
+		android:layout_marginTop="20dp"
+		android:layout_below="@id/contentloginTextView2"
+		android:textStyle="bold|italic"
+		android:paddingRight="5dp"
+		android:textColor="#00958A"/>
+
+	<Spinner
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:id="@+id/user"
+		android:layout_marginTop="15dp"
+		android:layout_below="@id/contentloginTextView1"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="wrap_content"
+		android:text="立即登陆"
+		android:id="@+id/contentloginTextView3"
+		android:layout_marginTop="28dp"
+		android:layout_below="@id/user"
+		android:textStyle="bold|italic"
+		android:paddingRight="8dp"
+		android:textColor="#00958A"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:layout_width="wrap_content"
+		android:text="请使用您的查分账号登陆，查询好分数"
+		android:id="@+id/contentloginTextView31"
+		android:layout_marginTop="30dp"
+		android:layout_below="@id/user"
+		android:textStyle="italic"
+		android:paddingRight="8dp"
+		android:textColor="#789593"
+		android:layout_marginLeft="10dp"
+		android:layout_toRightOf="@id/contentloginTextView3"
+		android:gravity="center|center_vertical|center_horizontal"/>
+
+	<EditText
+		android:id="@+id/username"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:inputType="text"
+		android:hint="用户名"
+		android:layout_marginTop="12dp"
+		android:layout_below="@id/contentloginTextView3"/>
+
+	<EditText
+		android:id="@+id/password"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:inputType="textPassword"
+		android:hint="密码"
+		android:layout_marginTop="20dp"
+		android:layout_below="@id/username"/>
+
+	<Button
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:text="登录"
+		android:layout_marginTop="25dp"
+		android:layout_below="@id/password"
+		android:id="@+id/loginButton"
+		android:layout_alignParentRight="true"/>
+
+	<ProgressBar
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_below="@id/password"
+		android:layout_marginTop="25dp"
+		android:id="@+id/ProgressBar"
+		android:visibility="invisible"
+		android:layout_toLeftOf="@id/loginButton"/>
+
+	<Button
+		android:layout_height="40dp"
+		android:layout_width="40dp"
+		android:layout_toRightOf="@id/contentloginTextView1"
+		android:layout_below="@id/contentloginTextView2"
+		android:layout_marginTop="12dp"
+		android:layout_marginLeft="8dp"
+		android:background="@drawable/settings"
+		android:id="@+id/LoginNickButton"/>
+
+</RelativeLayout>
+

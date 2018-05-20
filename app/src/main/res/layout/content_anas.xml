@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="fill_parent"
+	android:layout_width="fill_parent"
+	android:orientation="vertical"
+	android:gravity="center_horizontal">
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:layout_width="wrap_content"
+		android:text="坏分数单科分析报告"
+		android:id="@+id/BG_dk_title"
+		android:textColor="#007878"
+		android:textStyle="bold"
+		android:shadowColor="#FFDC80"
+		android:shadowRadius="5.0"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:layout_width="wrap_content"
+		android:layout_marginTop="10dp"
+		android:id="@+id/anas_papername"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="wrap_content"
+		android:text="专属报告"
+		android:layout_marginTop="5dp"
+		android:id="@+id/anas_nick"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="wrap_content"
+		android:text="·成绩汇总·"
+		android:layout_marginTop="15dp"
+		android:textColor="#4CAF50"
+		android:textStyle="bold"
+		android:paddingRight="5dp"/>
+
+	<View
+		android:background="?android:attr/dividerVertical"
+		android:layout_height="2dp"
+		android:layout_width="match_parent"
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp"
+		android:layout_marginTop="10dp"/>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="horizontal"
+		android:weightSum="2"
+		android:paddingLeft="10dp"
+		android:paddingRight="10dp">
+
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:orientation="vertical"
+			android:id="@+id/contentanasLinearLayout1"
+			android:layout_weight="1.0"
+			android:gravity="center">
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:layout_width="wrap_content"
+				android:text="学科成绩"
+				android:layout_marginTop="15dp"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceLarge"
+				android:layout_width="wrap_content"
+				android:text="0"
+				android:textColor="#F44336"
+				android:id="@+id/anas_score"
+				android:textSize="35sp"/>
+
+			<View
+				android:background="?android:attr/dividerVertical"
+				android:layout_height="2dp"
+				android:layout_width="match_parent"
+				android:alpha="99"
+				android:layout_marginTop="15dp"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:layout_width="wrap_content"
+				android:text="班级排名："
+				android:id="@+id/anas_rank_class"
+				android:layout_marginTop="6dp"
+				android:layout_marginBottom="6dp"/>
+
+			<View
+				android:background="?android:attr/dividerVertical"
+				android:layout_height="1dp"
+				android:layout_width="match_parent"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:layout_width="wrap_content"
+				android:text="班级最高分："
+				android:id="@+id/anas_high_class"
+				android:layout_marginTop="6dp"
+				android:layout_marginBottom="6dp"/>
+
+			<View
+				android:background="?android:attr/dividerVertical"
+				android:layout_height="1dp"
+				android:layout_width="match_parent"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:layout_width="wrap_content"
+				android:text="班级平均分："
+				android:id="@+id/anas_aver_class"
+				android:layout_marginTop="6dp"
+				android:layout_marginBottom="6dp"/>
+
+		</LinearLayout>
+
+		<View
+			android:background="?android:attr/dividerHorizontal"
+			android:layout_height="match_parent"
+			android:layout_width="2dp"/>
+
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:orientation="vertical"
+			android:layout_toRightOf="@id/contentanasLinearLayout1"
+			android:layout_weight="1.0"
+			android:gravity="center">
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:layout_width="wrap_content"
+				android:text="学科评价"
+				android:layout_marginTop="15dp"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceLarge"
+				android:layout_width="wrap_content"
+				android:text="A"
+				android:textColor="#9C27B0"
+				android:id="@+id/anas_score_com"
+				android:textSize="35sp"/>
+
+			<View
+				android:background="?android:attr/dividerVertical"
+				android:layout_height="2dp"
+				android:layout_width="match_parent"
+				android:layout_marginTop="15dp"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:layout_width="wrap_content"
+				android:text="年级排名："
+				android:id="@+id/anas_rank_grade"
+				android:layout_marginTop="6dp"
+				android:layout_marginBottom="6dp"/>
+
+			<View
+				android:background="?android:attr/dividerVertical"
+				android:layout_height="1dp"
+				android:layout_width="match_parent"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:layout_width="wrap_content"
+				android:text="年级最高分："
+				android:id="@+id/anas_high_grade"
+				android:layout_marginTop="6dp"
+				android:layout_marginBottom="6dp"/>
+
+			<View
+				android:background="?android:attr/dividerVertical"
+				android:layout_height="1dp"
+				android:layout_width="match_parent"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:layout_width="wrap_content"
+				android:text="年级平均分："
+				android:id="@+id/anas_aver_grade"
+				android:layout_marginTop="6dp"
+				android:layout_marginBottom="6dp"/>
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+	<View
+		android:background="?android:attr/dividerVertical"
+		android:layout_height="2dp"
+		android:layout_width="match_parent"
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="wrap_content"
+		android:text="·总结分析·"
+		android:layout_marginTop="20dp"
+		android:textColor="#4CAF50"
+		android:textStyle="bold"
+		android:paddingRight="5dp"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:text="坏分数智能分析引擎启动失败~(*+﹏+*)~"
+		android:textSize="13sp"
+		android:textStyle="bold"
+		android:id="@+id/Anas_AllText"
+		android:textColor="#0097A7"
+		android:layout_marginTop="15dp"
+		android:layout_marginLeft="7dp"
+		android:layout_marginRight="7dp"
+		android:lineSpacingMultiplier="1.1"
+		android:layout_marginBottom="20dp"/>
+
+	<View
+		android:background="?android:attr/dividerVertical"
+		android:layout_height="2dp"
+		android:layout_width="match_parent"
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="wrap_content"
+		android:text="·单科成绩趋势·"
+		android:layout_marginTop="20dp"
+		android:textColor="#4CAF50"
+		android:textStyle="bold"
+		android:paddingRight="5dp"/>
+
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:layout_width="wrap_content"
+		android:text="·年级击败率·"
+		android:layout_marginTop="8dp"
+		android:textColor="#607D8B"
+		android:textStyle="bold"
+		android:paddingRight="5dp"/>
+
+	<HorizontalScrollView
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:scrollbars="none"
+		android:id="@+id/anas_sco_area2">
+
+		<RelativeLayout
+			android:layout_height="match_parent"
+			android:layout_width="match_parent"
+			android:id="@+id/ana_area_grade">
+
+		</RelativeLayout>
+
+	</HorizontalScrollView>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:text="坏分数智能分析引擎启动失败~(*+﹏+*)~"
+		android:textSize="15sp"
+		android:textStyle="bold"
+		android:id="@+id/anas_text_area2"
+		android:textColor="#0097A7"
+		android:layout_marginTop="15dp"
+		android:layout_marginLeft="7dp"
+		android:layout_marginRight="7dp"
+		android:lineSpacingMultiplier="1.1"/>
+
+	<View
+		android:background="?android:attr/dividerVertical"
+		android:layout_height="3dp"
+		android:layout_width="match_parent"
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp"
+		android:layout_marginTop="10dp"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:text="更多图表敬请期待"
+		android:layout_marginTop="10dp"
+		android:textColor="#DC0000"
+		android:textStyle="bold|italic"/>
+
+</LinearLayout>
+

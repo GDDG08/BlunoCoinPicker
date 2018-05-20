@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/icon_home"
+            android:title="首页" />
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/icon_account"
+            android:title="登陆/切换账号" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/icon_rank"
+            android:title="查询考试信息" />
+        <item
+            android:id="@+id/nav_analysis"
+            android:icon="@drawable/icon_analysis"
+            android:title="分析报告（NEW）"
+			android:textColor="#FF1744"/>
+        <item
+            android:id="@+id/nav_paperdetail"
+            android:icon="@drawable/icon_paper"
+            android:title="试题解析（NEW）"
+			android:textColor="#FF1744"/>
+    </group>
+ 
+    <item android:title="♦用户中心♦">
+        <menu>
+            <item
+                android:id="@+id/nav_jifen"
+                android:icon="@drawable/icon_member"
+                android:title="支持我们(۩⊙o⊙۩)" />
+        </menu>
+    </item>
+   
+    <item android:title="关于">
+        <menu>
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/icon_web"
+                android:title="免责声明" />
+            <item
+                android:id="@+id/nav_slideshow"
+                android:icon="@drawable/icon_link"
+                android:title="使用帮助" />
+            <item
+                android:id="@+id/nav_manage"
+                android:icon="@drawable/icon_message"
+                android:title="加入坏分数交流群" />
+        </menu>
+    </item>
+
+</menu>

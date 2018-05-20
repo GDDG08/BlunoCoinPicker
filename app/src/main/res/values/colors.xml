@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#F44336</color>
+    <color name="colorPrimaryDark">#D32F2F</color>
+    <color name="colorAccent">#FFA726</color>
+    <color name="color_radar">#009685</color>
+    <color name="color_radar_bak">#37474F</color>
+    <color name="color_bar_pre">#009688</color>
+    <color name="color_bar_now">#8BC34A</color>
+    <color name="color_radar_text">#0097A7</color>
+</resources>

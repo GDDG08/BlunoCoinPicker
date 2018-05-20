@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<android.support.v7.widget.CardView
+		xmlns:card_view="http://schemas.android.com/apk/res-auto"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp"
+		card_view:cardCornerRadius="10dp"
+		tools:targetApi="lollipop"
+		android:stateListAnimator="@drawable/selector_elevation"
+		android:foreground="?android:attr/selectableItemBackground"
+		app:cardUseCompatPadding="false"
+		app:cardPreventCornerOverlap="false">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_margin="10dp"
+			android:orientation="horizontal">
+
+			<TextView
+				android:id="@+id/ps_name"
+				android:layout_marginTop="3dp"
+				android:layout_marginBottom="3dp"
+				android:textSize="18sp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textStyle="bold"
+				android:text="标题"
+				android:layout_weight="1.0"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="得分"
+				android:layout_gravity="right|center_vertical|end"
+				android:textSize="15sp"
+				android:id="@+id/ps_score"/>
+
+		</LinearLayout>
+
+	</android.support.v7.widget.CardView>
+
+	<android.support.v7.widget.CardView
+		xmlns:card_view="http://schemas.android.com/apk/res-auto"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp"
+		card_view:cardCornerRadius="10dp"
+		tools:targetApi="lollipop"
+		android:stateListAnimator="@drawable/selector_elevation"
+		android:foreground="?android:attr/selectableItemBackground"
+		app:cardUseCompatPadding="false"
+		app:cardPreventCornerOverlap="false"
+		android:id="@+id/ps_card_star">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_margin="10dp"
+			android:orientation="horizontal">
+
+			<TextView
+				android:id="@+id/ps_hard"
+				android:layout_marginTop="3dp"
+				android:layout_marginBottom="3dp"
+				android:textSize="16sp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textStyle="bold"
+				android:text="题目难度"
+				android:layout_weight="1.0"/>
+
+			<ImageView
+				android:layout_height="match_parent"
+				android:layout_width="wrap_content"
+				android:adjustViewBounds="true"
+				android:id="@+id/ps_hard_star1"
+				android:layout_gravity="center_vertical"
+				android:layout_marginTop="3dp"
+				android:layout_marginBottom="3dp"
+				android:layout_marginRight="-5dp"
+				android:src="@drawable/star_yellow"/>
+
+			<ImageView
+				android:layout_height="match_parent"
+				android:layout_width="wrap_content"
+				android:adjustViewBounds="true"
+				android:id="@+id/ps_hard_star2"
+				android:layout_gravity="center_vertical"
+				android:layout_marginTop="3dp"
+				android:layout_marginBottom="3dp"
+				android:layout_marginLeft="-5dp"
+				android:layout_marginRight="-5dp"
+				android:src="@drawable/star_gray"/>
+
+			<ImageView
+				android:layout_height="match_parent"
+				android:layout_width="wrap_content"
+				android:adjustViewBounds="true"
+				android:id="@+id/ps_hard_star3"
+				android:layout_gravity="center_vertical"
+				android:layout_marginTop="3dp"
+				android:layout_marginBottom="3dp"
+				android:layout_marginLeft="-5dp"
+				android:layout_marginRight="-5dp"
+				android:src="@drawable/star_gray"/>
+
+		</LinearLayout>
+
+	</android.support.v7.widget.CardView>
+
+	<android.support.v7.widget.CardView
+		xmlns:card_view="http://schemas.android.com/apk/res-auto"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp"
+		card_view:cardCornerRadius="10dp"
+		tools:targetApi="lollipop"
+		android:stateListAnimator="@drawable/selector_elevation"
+		android:foreground="?android:attr/selectableItemBackground"
+		app:cardUseCompatPadding="false"
+		app:cardPreventCornerOverlap="false"
+		android:id="@+id/ps_card_paper">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_margin="10dp"
+			android:orientation="vertical"
+			android:id="@+id/ps_li_p">
+
+			<TextView
+				android:id="@+id/ps_paper"
+				android:layout_marginTop="3dp"
+				android:layout_marginBottom="3dp"
+				android:textSize="16sp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textStyle="bold"
+				android:text="原题"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="学校暂未上传试卷原卷"
+				android:id="@+id/ps_tv_nopaper"
+				android:textStyle="italic"
+				android:layout_marginTop="15dp"
+				android:layout_gravity="center"
+				android:layout_marginBottom="15dp"
+				android:visibility="gone"/>
+
+			<ImageView
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:adjustViewBounds="true"
+				android:id="@+id/paperImage_p"/>
+
+		</LinearLayout>
+
+	</android.support.v7.widget.CardView>
+
+	<android.support.v7.widget.CardView
+		xmlns:card_view="http://schemas.android.com/apk/res-auto"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:layout_marginBottom="10dp"
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp"
+		card_view:cardCornerRadius="10dp"
+		tools:targetApi="lollipop"
+		android:stateListAnimator="@drawable/selector_elevation"
+		android:foreground="?android:attr/selectableItemBackground"
+		app:cardUseCompatPadding="false"
+		app:cardPreventCornerOverlap="false">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_margin="10dp"
+			android:orientation="vertical"
+			android:id="@+id/ps_li_m">
+
+			<TextView
+				android:id="@+id/ps_answer"
+				android:layout_marginTop="3dp"
+				android:layout_marginBottom="3dp"
+				android:textSize="16sp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textStyle="bold"
+				android:text="答案"/>
+
+			<TextView
+				android:id="@+id/ps_answer_choice"
+				android:layout_marginTop="3dp"
+				android:layout_marginBottom="3dp"
+				android:textSize="14sp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"/>
+
+			<ImageView
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:adjustViewBounds="true"
+				android:id="@+id/paperImage_m"/>
+
+		</LinearLayout>
+
+	</android.support.v7.widget.CardView>
+
+	<android.support.v7.widget.CardView
+		xmlns:card_view="http://schemas.android.com/apk/res-auto"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp"
+		card_view:cardCornerRadius="10dp"
+		tools:targetApi="lollipop"
+		android:stateListAnimator="@drawable/selector_elevation"
+		android:foreground="?android:attr/selectableItemBackground"
+		app:cardUseCompatPadding="false"
+		app:cardPreventCornerOverlap="false"
+		android:layout_marginBottom="10dp"
+		android:id="@+id/ps_card_ana">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_margin="10dp"
+			android:orientation="vertical">
+
+			<TextView
+				android:id="@+id/ps_ana"
+				android:layout_marginTop="3dp"
+				android:layout_marginBottom="6dp"
+				android:textSize="16sp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textStyle="bold"
+				android:text="解析"/>
+
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:orientation="horizontal"
+				android:layout_marginTop="5dp">
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:layout_weight="1.0"
+					android:text="班级平均分："/>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:layout_gravity="right|center_vertical|end"
+					android:id="@+id/ps_ana_ca"
+					android:text="Loading"/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:orientation="horizontal"
+				android:layout_marginTop="5dp">
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:layout_weight="1.0"
+					android:text="年级平均分："/>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:layout_gravity="right|center_vertical|end"
+					android:id="@+id/ps_ana_ga"
+					android:text="Loading"/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:orientation="horizontal"
+				android:layout_marginTop="5dp">
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:layout_weight="1.0"
+					android:text="班级满分人数："/>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:layout_gravity="right|center_vertical|end"
+					android:id="@+id/ps_ana_cm"
+					android:text="Loading"/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:orientation="horizontal"
+				android:layout_marginTop="5dp">
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:layout_weight="1.0"
+					android:text="年级满分人数："/>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:layout_gravity="right|center_vertical|end"
+					android:id="@+id/ps_ana_gm"
+					android:text="Loading"/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:orientation="horizontal"
+				android:layout_marginTop="5dp">
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:layout_weight="1.0"
+					android:text="综合难度："/>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:layout_gravity="right|center_vertical|end"
+					android:id="@+id/ps_ana_hard"
+					android:text="Loading"/>
+
+			</LinearLayout>
+
+		</LinearLayout>
+
+	</android.support.v7.widget.CardView>
+
+</LinearLayout>
+

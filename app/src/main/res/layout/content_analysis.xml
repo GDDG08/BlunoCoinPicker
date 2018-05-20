@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent"
+	android:layout_width="match_parent"
+	android:layout_gravity="center|fill">
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:id="@+id/analysis"
+		android:visibility="gone">
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:layout_width="wrap_content"
+			android:text="坏分数全科分析报告"
+			android:id="@+id/BG"
+			android:textColor="#007878"
+			android:textStyle="bold"
+			android:shadowColor="#FFDC80"
+			android:shadowRadius="5.0"
+			android:layout_centerHorizontal="true"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="考试分析"
+			android:layout_below="@id/BG"
+			android:layout_marginTop="20dp"
+			android:textColor="#9D0000"
+			android:layout_centerHorizontal="true"
+			android:textSize="18sp"
+			android:id="@+id/contentanalysisTextView1"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="坏分数智能分析引擎启动失败~(*+﹏+*)~"
+			android:textSize="13sp"
+			android:textStyle="bold"
+			android:id="@+id/AnalysisAllText"
+			android:textColor="#0097A7"
+			android:layout_below="@id/contentanalysisTextView1"
+			android:layout_marginTop="15dp"
+			android:layout_marginLeft="7dp"
+			android:layout_marginRight="7dp"
+			android:lineSpacingMultiplier="1.1"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="学科优劣"
+			android:layout_below="@id/AnalysisAllText"
+			android:layout_marginTop="20dp"
+			android:textColor="#9D0000"
+			android:layout_centerHorizontal="true"
+			android:textSize="18sp"
+			android:id="@+id/ana_TextView2"/>
+
+		<RelativeLayout
+			android:layout_height="match_parent"
+			android:layout_width="match_parent"
+			android:id="@+id/AnalysisContent"
+			android:layout_below="@id/ana_TextView2">
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="坏分数智能分析引擎启动失败~(*+﹏+*)~"
+				android:textSize="15sp"
+				android:textStyle="bold"
+				android:id="@+id/AnalysisText"
+				android:textColor="#0097A7"
+				android:layout_marginTop="10dp"
+				android:layout_marginLeft="7dp"
+				android:layout_marginRight="7dp"
+				android:lineSpacingMultiplier="1.1"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="Tip:图中灰色多边形表示“你的总成绩超过了年级中多少同学”，红色多边形表示“你的单科成绩好过了年级中多少同学”。整个图形越大，代表总成绩越优秀，多边形的角代表每一个科目，角越冒尖，代表这一科越优秀。"
+				android:layout_below="@id/AnalysisText"
+				android:paddingLeft="10dp"
+				android:paddingRight="10dp"
+				android:layout_marginTop="22dp"
+				android:id="@+id/Analysis_text_radar"
+				android:background="#E8F5E9"
+				android:textSize="11sp"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="科目趋势"
+				android:layout_below="@id/Analysis_text_radar"
+				android:layout_marginTop="30dp"
+				android:textColor="#9D0000"
+				android:layout_centerHorizontal="true"
+				android:textSize="18sp"/>
+
+		</RelativeLayout>
+
+		<RelativeLayout
+			android:layout_height="match_parent"
+			android:layout_width="match_parent"
+			android:id="@+id/AnalysisContent2"
+			android:layout_below="@id/AnalysisContent">
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="坏分数智能分析引擎启动失败~(*+﹏+*)~"
+				android:textSize="15sp"
+				android:textStyle="bold"
+				android:id="@+id/AnalysisBarText"
+				android:textColor="#0097A7"
+				android:layout_marginTop="10dp"
+				android:layout_marginLeft="7dp"
+				android:layout_marginRight="7dp"
+				android:lineSpacingMultiplier="1.1"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="Tip:通过比较总分及单科分数的击败率，比较客观地体现了考生在两次考试间有没有取得进步。横坐标是本次考试的科目，纵坐标是单科年级排名击败率。将本次考试的各个科目的年级击败率与上次考试对应科目的年级击败率对比，本次考试的柱子越高，说明进步越大。若上次考试没有考过某一科目，则不会显示。"
+				android:layout_below="@id/AnalysisBarText"
+				android:paddingLeft="10dp"
+				android:paddingRight="10dp"
+				android:layout_marginTop="22dp"
+				android:id="@+id/Analysis_text_bar"
+				android:background="#E8F5E9"
+				android:textSize="11sp"
+				android:layout_marginBottom="35dp"/>
+
+		</RelativeLayout>
+
+	</RelativeLayout>
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:gravity="center"
+		android:id="@+id/loading_ana">
+
+		<View
+			android:background="#26A69A"
+			android:layout_height="match_parent"
+			android:layout_width="match_parent"/>
+
+		<com.zzh.hfs.plus.tool.SunBabyLoadingView
+			android:layout_centerInParent="true"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"/>
+
+	</FrameLayout>
+
+</FrameLayout>
+

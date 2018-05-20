@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:layout_width="wrap_content"
+		android:text="考试名称"
+		android:id="@+id/rankexamname"
+		android:textSize="25sp"
+		android:textStyle="bold"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:text="年级人数："
+		android:id="@+id/rankgradenum"
+		android:layout_below="@id/rankexamname"
+		android:layout_marginTop="6dp"
+		android:paddingBottom="10dp"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_below="@id/rankexamname"
+		android:text="班级人数："
+		android:id="@+id/rankclassnum"
+		android:layout_marginTop="6dp"
+		android:layout_toRightOf="@id/rankgradenum"
+		android:layout_marginLeft="20dp"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:layout_width="wrap_content"
+		android:text="点击查看详情"
+		android:layout_below="@id/rankgradenum"
+		android:layout_marginTop="10dp"
+		android:textStyle="bold|italic"
+		android:id="@+id/rank_detail"
+		android:paddingRight="5dp"/>
+
+	<com.zzh.hfs.plus.tool.MyListView
+		android:layout_height="match_parent"
+		android:layout_width="match_parent"
+		android:id="@+id/rankExamList"
+		android:layout_marginTop="2dp"
+		android:layout_below="@id/rank_detail"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:text="各科成绩："
+		android:id="@+id/rank_paper"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:textStyle="bold|italic"
+		android:layout_below="@id/rankExamList"/>
+
+	<com.zzh.hfs.plus.tool.MyListView
+		android:layout_height="match_parent"
+		android:layout_width="match_parent"
+		android:layout_below="@id/rank_paper"
+		android:layout_marginTop="2dp"
+		android:id="@+id/rankPaperList"/>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="horizontal"
+		android:layout_toRightOf="@id/rank_detail"
+		android:layout_above="@id/rankExamList"
+		android:gravity="right"
+		android:paddingRight="10dp">
+
+		<ProgressBar
+			android:layout_height="wrap_content"
+			android:id="@+id/rankProgressBar"
+			android:visibility="invisible"
+			android:layout_width="wrap_content"/>
+
+	</LinearLayout>
+
+</RelativeLayout>
+
