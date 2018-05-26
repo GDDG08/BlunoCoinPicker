@@ -6,7 +6,7 @@ android {
     buildToolsVersion "27.0.3"
 
     defaultConfig {
-        applicationId "com.zzh.hfs.plus"
+        applicationId "com.zzh.bamboobook"
         minSdkVersion 14
         targetSdkVersion 27
         versionCode 30366780
@@ -36,5 +36,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.github.iammert:MaterialIntroView:1.6.0'
     compile 'lib.kingja.switchbutton:switchbutton:1.1.2'
+
+    compile 'devlight.io:navigationtabbar:1.2.5'
 }
 
