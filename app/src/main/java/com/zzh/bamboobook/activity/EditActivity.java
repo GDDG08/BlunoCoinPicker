@@ -4,14 +4,18 @@ package com.zzh.bamboobook.activity;
  * Created on 2018/5/26-09-16.
  */
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,11 +24,20 @@ import android.widget.Toast;
 
 import com.zzh.bamboobook.MainActivity;
 import com.zzh.bamboobook.R;
+import com.zzh.bamboobook.ZZHApplication;
+import com.zzh.bamboobook.data.db.User;
 import com.zzh.bamboobook.tool.Msg;
+
+import org.xutils.DbManager;
+import org.xutils.common.util.KeyValue;
+import org.xutils.db.sqlite.WhereBuilder;
+import org.xutils.ex.DbException;
 
 import devlight.io.library.ntb.NavigationTabBar;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -196,8 +209,89 @@ public class EditActivity extends Activity {
         }
     }
     public void ontestbuttonclick(View v){
-        Toast.makeText(EditActivity.this,"66666",Toast.LENGTH_LONG);
+        Toast.makeText(EditActivity.this,"66666",Toast.LENGTH_LONG).show();
         //finish();
+        Intent intent = new Intent();
+        intent.setAction("android.media.action.IMAGE_CAPTURE");
+        intent.addCategory("android.intent.category.DEFAULT");
+        //保存照片到指定的路径
+        File file = new File("/sdcard/image.jpg");
+        Uri uri = Uri.fromFile(file);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);           startActivity(intent);
+    }
+
+    public void save(View view) {
+        //获取数据库管理器
+        DbManager manager = ZZHApplication.getInstance().getDbManager();
+        //数据
+        User user = new User();
+        // user.setId(1);//自增长的id设置了也是没有用的
+        user.setSex("女");
+        user.setPassword("123456");
+        user.setUsername("李文");
+        user.setAge(18);
+        try {
+            //实现数据的存储,配合User类中的注释才能进行对应的存储
+            //表名和列名都是在User中注释决定的。
+            manager.save(user);//保存
+            // manager.saveOrUpdate(user);//保存或更新，这如果数据不存在是不会保存的，存在的话会跟新
+        } catch (DbException e) {
+            e.printStackTrace();
+        }
 
     }
+
+    /**
+     * 删除数据
+     * //删除整个表的所有数据
+     * //manager.delete(User.class);
+     * //删除指定id的记录
+     * //manager.deleteById(User.class,1);
+     * //删除某一类数据  where name="张三"
+     * manager.delete(User.class, WhereBuilder.b("username", "=", "王五").and("age", "<", "100"));
+     */
+    public void delete(View view) {
+        DbManager manager = ZZHApplication.getInstance().getDbManager();
+        try {
+            manager.delete(User.class, WhereBuilder.b("username", "=", "李文"));
+        } catch (DbException e) {
+            e.printStackTrace();
+
+        }
+    }
+
+    /**
+     * 修改数据
+     */
+    public void update(View view) {
+        DbManager manager = ZZHApplication.getInstance().getDbManager();
+        //要修改的数据，以键值对的显示传入,
+        KeyValue keyValue = new KeyValue("username", "李世民");
+        try {
+            //过滤年龄小于20的数据就修改,这里可以设置多个keyValue值
+            manager.update(User.class, WhereBuilder.b("age", "<", "20"), keyValue);
+        } catch (DbException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 查找数据
+     */
+    public void query(View view) {
+        //查询所有
+        //获取管理器
+        DbManager manager = ZZHApplication.getInstance().getDbManager();
+        try {
+            List<User> all = manager.findAll(User.class);
+            //manager.findById()找单个的对象
+            for (int i = 0; i < all.size(); i++) {
+                Log.e("TAG", all.get(i).toString());//打印显示
+            }
+
+        } catch (DbException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
