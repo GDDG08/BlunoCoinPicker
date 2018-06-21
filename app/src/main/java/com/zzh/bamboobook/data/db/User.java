@@ -11,77 +11,133 @@ import org.xutils.db.annotation.Table;
  * 这里要添加数据的注解，就可以对应数据库中的表和字段，
  * 注解也是xUtils中的工具类完成的
  */
-@Table(name = "table_user")//注释表名
+@Table(name = "Chinese")//注释表名
 public class User {
 
-
+public User(){
+	
+}
     @Override
     public String toString() {
         return "User{" +
-                "username='" + username + '\'' +
-                ", id=" + id +
-                ", password='" + password + '\'' +
-                ", age=" + age +
-                ", sex='" + sex + '\'' +
-                '}';
-    }
+			"\"ALLID\":\"" + ALLID + "\"" +
+			", \"SID\":" + SID +
+			", \"AddTime\":" + AddTime +
+			", \"TITLE\":\"" + TITLE + "\"" +
+			", \"Picnum\":\"" + Picnum + "\"" +
+			", \"Keypoint\":\"" + Keypoint + "\"" +
+			", \"text\":\"" + text + "\"" +
+			", \"star\":" + star +
+			", \"ReviewTime\":" + ReviewTime +
+			", \"ReviewPre\":" + ReviewPre +
 
-    @Column(name = "username")//注释列名
-    private String username;
+			"}";
+     }
 
-    @Column(name = "id", isId = true, autoGen = true)//注释列名主键，主动增长
-    private int id;
+    @Column(name = "ALLID")//注释列名
+    private String ALLID;
 
-    @Column(name = "password")//注释列名
-    private String password;
+    @Column(name = "SID", isId = true, autoGen = true)//注释列名主键，主动增长
+    private long SID;
 
-    @Column(name = "age")//注释列名
-    private int age;
+    @Column(name = "AddTime")//注释列名
+    private long AddTime;
 
-    @Column(name = "sex")//注释列名
-    private String sex;
+    @Column(name = "TITLE")//注释列名
+    private String TITLE;
+
+    @Column(name = "Picnum")//注释列名
+    private String Picnum;
+    
+    @Column(name = "Keypoint")//注释列名
+    private String Keypoint;
+    
+    @Column(name = "text")//注释列名
+    private String text;
+    
+    @Column(name = "star")//注释列名
+    private long star;
+    
+    @Column(name = "ReviewTime")//注释列名
+    private long  ReviewTime;
+    
+    @Column(name = "ReviewPre")//注释列名
+    private long ReviewPre;
+    
+    //@Column(name = "")//注释列名
+    //private String ;
 
 
     //必须有空参的构造方法和set与get
+	public void setALLID(String ALLID) {
+		this.ALLID = ALLID;
+	}
+	public String getALLID() {
+		return ALLID;
+	}
 
+    public void setSID(int SID) {
+		this.SID = SID;
+	}
+	public long getSID() {
+		return SID;
+	}
 
-    public String getUsername() {
-        return username;
-    }
+    public void setAddTime(long AddTime) {
+		this.AddTime = AddTime;
+	}
+	public long getAddTime() {
+		return AddTime;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+    public void setTITLE(String TITLE) {
+		this.TITLE = TITLE;
+	}
+	public String getTITLE() {
+		return TITLE;
+	}
 
-    public int getId() {
-        return id;
-    }
+    public void setPicnum(String Picnum) {
+		this.Picnum = Picnum;
+	}
+	public String getPicnum() {
+		return Picnum;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public void setKeypoint(String Keypoint) {
+		this.Keypoint = Keypoint;
+	}
+	public String getKeypoint() {
+		return Keypoint;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+    public void setText(String text) {
+		this.text = text;
+	}
+	public String getText() {
+		return text;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    public void setStar(long star) {
+		this.star = star;
+	}
+	public long getStar() {
+		return star;
+	}
 
-    public int getAge() {
-        return age;
-    }
+    public void setReviewTime(long ReviewTime) {
+		this.ReviewTime = ReviewTime;
+	}
+	public long getReviewTime() {
+		return ReviewTime;
+	}
 
-    public void setAge(int age) {
-        this.age = age;
-    }
+    public void setReviewPre(long ReviewPre) {
+		this.ReviewPre = ReviewPre;
+	}
+	public long getReviewPre() {
+		return ReviewPre;
+	}
 
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
+    
 }
