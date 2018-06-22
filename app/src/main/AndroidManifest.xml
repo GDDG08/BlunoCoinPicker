@@ -4,8 +4,8 @@
     package="com.zzh.bamboobook">
 
 	<uses-sdk
-		android:minSdkVersion="9"
-		android:targetSdkVersion="24" />
+		android:minSdkVersion="11"
+		android:targetSdkVersion="27" />
 
 	<!-- 配置权限 -->
 	<uses-permission android:name="android.permission.INTERNET" />

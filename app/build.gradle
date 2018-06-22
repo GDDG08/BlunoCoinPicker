@@ -11,6 +11,13 @@ android {
         targetSdkVersion 27
         versionCode 30366780
         versionName "6.6.6-≧∇≦"
+
+        javaCompileOptions {
+            // 显式声明支持注解
+            annotationProcessorOptions {
+                includeCompileClasspath false
+            }
+        }
     }
     buildTypes {
         release {
@@ -39,5 +46,13 @@ dependencies {
     compile 'devlight.io:navigationtabbar:1.2.5'
     compile project(':librarySlideCard')
     compile 'com.github.bumptech.glide:glide:+'
+    // 图像剪切
+    compile('com.kevin:crop:1.0.2') {
+        // 如果已经引入 support:appcompat-v7 可以加上这句话
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+    }
+    // butter knife
+    compile 'com.jakewharton:butterknife:7.0.1'
 }
+
 

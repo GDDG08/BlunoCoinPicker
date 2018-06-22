@@ -1,16 +1,24 @@
 package com.zzh.bamboobook;
 import android.app.*;
+import android.content.Context;
 import android.util.Log;
 
 import org.xutils.*;
 import org.xutils.db.table.TableEntity;
 
 import com.zzh.bamboobook.tool.*;
+import com.zzh.bamboobook.tool.photo.ActivityStack;
 
 import java.io.File;
 
 public class ZZHApplication extends Application {
     private static ZZHApplication mInstance;
+
+    /** 上下文 */
+    protected Context mContext          = null;
+    /** Activity 栈 */
+    public ActivityStack mActivityStack = null;
+
 
         @Override
         public void onCreate() {

@@ -5,6 +5,7 @@ package com.zzh.bamboobook.activity;
  */
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ import android.widget.Toast;
 import com.zzh.bamboobook.R;
 import com.zzh.bamboobook.ZZHApplication;
 import com.zzh.bamboobook.data.db.User;
+import com.zzh.bamboobook.tool.photo.PictureSelectFragment;
 
 import org.xutils.DbManager;
 import org.xutils.common.util.KeyValue;
@@ -205,6 +207,19 @@ public class EditActivity extends Activity {
         }
     }
     public void ontestbuttonclick(View v){
+        PictureSelectFragment psf=new PictureSelectFragment();
+
+                psf.setOnPictureSelectedListener(new PictureSelectFragment.OnPictureSelectedListener() {
+            @Override
+            public void onPictureSelected(Uri fileUri, Bitmap bitmap) {
+                //mPictureIv.setImageBitmap(bitmap);
+
+                String filePath = fileUri.getEncodedPath();
+                String imagePath = Uri.decode(filePath);
+                Toast.makeText(EditActivity.this, "图片已经保存到:" + imagePath, Toast.LENGTH_LONG).show();
+            }
+        });
+        /*
         Toast.makeText(EditActivity.this,"66666",Toast.LENGTH_LONG).show();
         //finish();
         Intent intent = new Intent();
@@ -213,7 +228,7 @@ public class EditActivity extends Activity {
         //保存照片到指定的路径
         File file = new File("/sdcard/image.jpg");
         Uri uri = Uri.fromFile(file);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);           startActivity(intent);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);           startActivity(intent);*/
     }
 
 
