@@ -4,11 +4,14 @@ import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager;
 import android.graphics.Rect;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -17,10 +20,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.*;
-import com.stone.card.data.db.*;
 import com.stone.card.library.CardAdapter;
 import com.stone.card.library.CardSlidePanel;
-import com.stone.card.library.R;
+//import com.stone.card.library.R;
+import com.zzh.bamboobook.R;
 import com.zzh.bamboobook.ZZHApplication;
 import com.zzh.bamboobook.data.db.User;
 import com.zzh.bamboobook.tool.CardDataItem;
@@ -189,7 +192,7 @@ public class ReviewActivity extends FragmentActivity {
         }
 
         public void bindData(CardDataItem itemData) {
-            Glide.with(this).load(itemData.imagePath).into(imageView);
+            Glide.with(ReviewActivity.this).load(itemData.imagePath).into(imageView);
             userNameTv.setText(itemData.userName);
             imageNumTv.setText(itemData.imageNum + "");
             likeNumTv.setText(itemData.likeNum + "");
@@ -290,17 +293,17 @@ public class ReviewActivity extends FragmentActivity {
     }
 
     private boolean checkPermission(){
-       /* if(Build.VERSION.SDK_INT>=23){
+        if(Build.VERSION.SDK_INT>=23){
             //判断是否有这个权限
             if(ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
                 //第一请求权限被取消显示的判断，一般可以不写
-                if (ActivityCompat.shouldShowRequestPermissionRationale(SdkActivity.this,
+                if (ActivityCompat.shouldShowRequestPermissionRationale(ReviewActivity.this,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE)){
                     //Log.i("readTosdCard","我们需要这个权限给你提供存储服务");
                     showAlert();
                 }else {
                     //2、申请权限: 参数二：权限的数组；参数三：请求码
-                    ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},REQUEST_WRITE);
+                    ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},0);
                 }
             }else {
                 return true;
@@ -308,8 +311,7 @@ public class ReviewActivity extends FragmentActivity {
         } else{
             return  true;
         }
-        return false;*/
-       return true;
+        return false;
     }
 
 
@@ -324,7 +326,7 @@ public class ReviewActivity extends FragmentActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         // TODO Auto-generated method stub
                         //2、申请权限: 参数二：权限的数组；参数三：请求码
-                        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
+                        ActivityCompat.requestPermissions(ReviewActivity.this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
                     }
                 }).
                 setNegativeButton("取消", new DialogInterface.OnClickListener() {

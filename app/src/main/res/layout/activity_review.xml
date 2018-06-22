@@ -28,7 +28,7 @@
 			android:layout_height="50dp"
 			android:layout_gravity="right|center_vertical"
 			android:padding="16dp"
-			android:src="@drawable/download"/>
+			android:src="@drawable/icon_web"/>
 
 	</FrameLayout>
 

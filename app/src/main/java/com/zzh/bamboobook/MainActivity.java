@@ -21,6 +21,7 @@ import android.widget.*;
 //import com.afollestad.materialdialogs.color.*;
 import com.umeng.analytics.*;
 import com.zzh.bamboobook.activity.EditActivity;
+import com.zzh.bamboobook.activity.ReviewActivity;
 import com.zzh.bamboobook.data.*;
 import com.zzh.bamboobook.fragment.*;
 import java.io.*;
@@ -284,7 +285,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 {
                     //   activity(2, TrendsActivity.class, "trends", true);  
                     model(1);
-                    Page(new TrendsFragment());
+                    //Page(new TrendsFragment());
+                    Activity(ReviewActivity.class);
                 }
                 else
                 {
@@ -299,7 +301,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             {
                 //    activity(2, TrendsActivity, "trends", false);
                 model(1);
-                Page(new TrendsFragment());
+               // Page(new TrendsFragment());
+                Activity(ReviewActivity.class);
             }
         }
         else if (id == R.id.nav_jifen)
