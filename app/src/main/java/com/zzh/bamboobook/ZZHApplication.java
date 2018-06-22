@@ -3,6 +3,8 @@ import android.app.*;
 import android.util.Log;
 
 import org.xutils.*;
+import org.xutils.db.table.TableEntity;
+
 import com.zzh.bamboobook.tool.*;
 
 import java.io.File;
