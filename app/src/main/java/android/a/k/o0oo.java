@@ -2,12 +2,12 @@ package android.a.k;
 import android.content.pm.*;
 import android.content.*;
 import java.util.*;
-import com.zzh.bamboobook.*;
+import com.zzh.blunocoin.*;
 import android.widget.*;
 import android.net.*;
 import java.io.*;
 import android.os.*;
-import com.zzh.bamboobook.data.*;
+import com.zzh.blunocoin.data.*;
 import com.umeng.analytics.*;
 
 public class o0oo
