@@ -5,45 +5,39 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    
-    <!--<string name="color_picker">自定义颜色</string>
-    <string name="color_part">分析报告文字颜色;雷达图单科击败率颜色;雷达图总体击败率颜色;科目趋势-上次考试颜色;科目趋势-本次考试颜色;</string>-->
-    
-    <!--<string name="changelog_his">●4.6.3-≧∇≦:\n①修复 考试只能显示7科成绩的bug\n②优化 成绩对话窗口为MD风格，调整各项数据顺序\n③新增 支持在任意界面的侧栏进行页面切换\n④优化 代码结构，让PLUS运行更快\n⑤修复 首页需要退出两次的bug\n\n●4.3.0-≧∇≦：\n①新增 BAD币卡密，便捷地享受清爽无广告界面！\n②更改 考试详情页返回策略为返回考试列表\n③新增 关闭启动页广告功能\n④优化 考试详情页和首页布局，信息查阅更方便\n\n●4.0.0-≧∇≦：\n新增用户中心，可以关闭插屏广告啦\n\n●3.2.0-≧∇≦：\n①修复网络初始化问题\n②优化启动页显示时间\n③修复菜单logo错位问题\n\n●3.1.0-≧∇≦：\n①新增双击返回；\n②新增启动页，优化启动，修复启动白屏\n\n●2.5.6-≧∇≦：\n增加账号切换功能！\n\n┏━━┓┏━━┓┏━━┓\n┃┏━┛┃┏━┛┃┏━┛\n┃┗━┓┃┗━┓┃┗━┓\n┃┏┓┃┃┏┓┃┃┏┓┃\n┃┗┛┃┃┗┛┃┃┗┛┃\n┗━━┛┗━━┛┗━━┛</string>-->
-	<string name="nonew">由于某些原因，坏分数PLUS自6.5.0版本起，将无限期停更，感谢大家支持！\n\n当前版本：6.3.0</string>
-	<string name="triplesix">┏━━┓┏━━┓┏━━┓\n┃┏━┛┃┏━┛┃┏━┛\n┃┗━┓┃┗━┓┃┗━┓\n┃┏┓┃┃┏┓┃┃┏┓┃\n┃┗┛┃┃┗┛┃┃┗┛┃\n┗━━┛┗━━┛┗━━┛</string>
-	<string name="hfsfree_link"><a href='http://www.coolapk.com/apk/com.hfs.free'>酷市场</a>\n\n<a href='https://fir.im/hfs'>FIR内测平台</a></string>
-		
-	
-	
-    <string name="e_clause">在使用本软件前，请仔细阅读本服务条款，授权即表示您已阅读并同意本条款，自愿接受本条款的约束： \n\n1.坏分数PLUS（以下简称坏分数）是一款工具软件，仅供个人数据解析测试、学习、交流及服务器测试，用户不得用于非法获取信息，不得用于商业或者其他用途，任何非法行为与本软件及开发者无关，开发者对此不承担任何法律责任。 \n\n2.用户自愿将数据（包括但不限于个人考试信息）提供给本软件，本软件仅作测试数据解析用途，坏分数不能保证数据解析的正确性、有效性，开发者不对数据的来源及内容负任何直接或间接法律责任（包括但不限于刑事、民事责任）及其他潜在责任与义务（包括但不限于相关国家已存在、正在形成、未来将形成之的法律法规之责任）。\n\n3.本软件所使用的任何图标及相关内容均来自网络， 如涉及版权等问题，请您联系开发者，并出示身份证明、著作权权属证明及侵权情况证明，我们将立即采取措施予以解决。 \n\n4.BAD币是用户自愿捐赠的一项回馈，是积分项目的测试的一部分，用于测试服务器回调、签名算法等内容，与虚拟货币无关，捐赠及赠送过程中不存在任何交易行为。 \n\n5.对于因不可抗力或因黑客攻击、破解、通讯线路中断等不可控原因造成的软件问题，导致功能异常，用户不能正常使用，坏分数及其开发者不承担任何责任。 \n\n6.用户自愿同意此服务条款，并自愿授权本应用访问其提供的数据信息。如用户未同意、未授权或非法绕开此条款，则本应用及开发者不对用户任何行为负任何直接或间接法律责任（包括但不限于刑事、民事责任）及其他潜在责任与义务（包括但不限于相关国家已存在、正在形成、未来将形成之的法律法规之责任）。 \n\n7.坏分数相关声明版权及其修改权、更新权和最终解释权均属坏分数开发者所有。\n</string>
-    
 
-    
-    <string name="agentoo7">c762</string>    
-    <string name="agentoo1">387f</string>
-    <string name="agentoo5">2e74</string>
-    <string name="agentoo3">2460</string>
-    <string name="agentoo4">c73b</string>
-    <string name="agentoo2">a75f</string>
-    <string name="agentoo6">e998</string>
-    <string name="agentoo0">063d</string>
     
     <string name="title_rank">考试信息</string>
     <string name="title_ana">分析报告</string>
     <string name="title_pap">试题解析</string>
-	<!--包名-->
-	<string name="classes">com.hfs.</string>
+
 	
 	<string name="shortcuts_name">彩蛋</string>
 	<string name="shortcuts_longname">坏分数PLUS彩蛋</string>
 	<string name="shortcuts_disabled">已禁用.</string>
 
+    <string name="drawer_notconnected">设备未连接</string>
 
-    <string name="label_cancel">取消</string>
-    <string name="label_ok">确定</string>
-    <string name="permission_title_rationale">权限需求</string>
-    <string name="permission_read_storage_rationale">选择图片时需要读取权限</string>
-    <string name="permission_write_storage_rationale">拍照时需要存储权限</string>
+    <!-- Bluno DFrobot Demo START -->
+    <string name="ble_not_supported">BLE is not supported</string>
+    <string name="label_data">Data:</string>
+    <string name="label_device_address">Device address:</string>
+    <string name="label_state">State:</string>
+    <string name="no_data">No data</string>
+    <string name="connected">Connected</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="title_devices">BLE Device Scan</string>
+    <string name="error_bluetooth_not_supported">Bluetooth not supported.</string>
+    <string name="unknown_device">Unknown device</string>
+    <string name="unknown_characteristic">Unknown characteristic</string>
+    <string name="unknown_service">Unknown service</string>
+
+    <!-- Menu items -->
+    <string name="menu_connect">Connect</string>
+    <string name="menu_disconnect">Disconnect</string>
+    <string name="menu_scan">Scan</string>
+    <string name="menu_stop">Stop</string>
+
+    <!-- Bluno DFrobot Demo END -->
 
     </resources>

@@ -51,7 +51,7 @@
 		android:layout_width="match_parent"
 		android:layout_marginTop="18dp"
 		android:id="@+id/mainNewTextView"
-		android:text="@string/nonew"
+		android:text="000"
 		android:visibility="gone"/>
 
 	<TextView
@@ -59,82 +59,9 @@
 		android:layout_width="match_parent"
 		android:layout_marginTop="18dp"
 		android:id="@+id/main666"
-		android:text="@string/triplesix"
+		android:text="111"
 		android:gravity="center_horizontal"/>
 
-	<android.support.v7.widget.CardView
-		xmlns:card_view="http://schemas.android.com/apk/res-auto"
-		xmlns:app="http://schemas.android.com/apk/res-auto"
-		xmlns:tools="http://schemas.android.com/tools"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="10dp"
-		android:layout_marginLeft="10dp"
-		android:layout_marginRight="10dp"
-		card_view:cardCornerRadius="10dp"
-		tools:targetApi="lollipop"
-		android:stateListAnimator="@drawable/selector_elevation"
-		android:foreground="?android:attr/selectableItemBackground"
-		app:cardUseCompatPadding="false"
-		app:cardPreventCornerOverlap="false"
-		android:layout_marginBottom="10dp"
-		android:id="@+id/hfsfree_cv"
-		android:visibility="gone">
-
-		<RelativeLayout
-			android:layout_height="wrap_content"
-			android:layout_width="wrap_content"
-			android:paddingLeft="15dp"
-			android:paddingRight="15dp"
-			android:id="@+id/hfsfree_rl">
-
-			<TextView
-				android:layout_height="wrap_content"
-				android:layout_width="match_parent"
-				android:text="其他软件推荐：好分数免费版"
-				android:textColor="#FFFFFF"
-				android:textSize="13sp"
-				android:gravity="center_horizontal"
-				android:layout_marginTop="10dp"
-				android:id="@+id/contentmainTextView3"
-				android:background="#42A5F5"
-				android:layout_marginBottom="6dp"/>
-
-			<ImageView
-				android:layout_height="70dp"
-				android:layout_width="wrap_content"
-				android:src="@drawable/hfsfree"
-				android:layout_below="@id/contentmainTextView3"
-				android:id="@+id/hfsfree_logo"
-				android:adjustViewBounds="true"
-				android:visibility="gone"
-				android:layout_marginTop="2dp"/>
-
-			<TextView
-				android:layout_height="wrap_content"
-				android:layout_width="match_parent"
-				android:text="欢迎下载体验！"
-				android:textSize="16sp"
-				android:gravity="center_horizontal"
-				android:layout_toRightOf="@id/hfsfree_logo"
-				android:layout_below="@id/contentmainTextView3"
-				android:id="@+id/contentmainTextView4"/>
-
-			<TextView
-				android:layout_height="wrap_content"
-				android:layout_width="match_parent"
-				android:textSize="13sp"
-				android:gravity="center_horizontal"
-				android:layout_toRightOf="@id/hfsfree_logo"
-				android:layout_below="@id/contentmainTextView4"
-				android:id="@+id/hfsfree_weblink"
-				android:text="@string/hfsfree_link"
-				android:layout_marginTop="5dp"
-				android:layout_marginBottom="10dp"/>
-
-		</RelativeLayout>
-
-	</android.support.v7.widget.CardView>
 
 </LinearLayout>
 

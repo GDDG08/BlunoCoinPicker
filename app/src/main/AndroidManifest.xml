@@ -4,7 +4,7 @@
     package="com.zzh.blunocoin">
 
 	<uses-sdk
-		android:minSdkVersion="11"
+		android:minSdkVersion="18"
 		android:targetSdkVersion="27" />
 
 	<!-- 配置权限 -->
@@ -13,7 +13,11 @@
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    
+
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <application
         android:name=".ZZHApplication"
         android:icon="@mipmap/ic_launcher"
@@ -37,33 +41,11 @@
             android:theme="@style/AppTheme.NoActionBar" 
 			android:configChanges="orientation|keyboardHidden|screenSize">
         </activity>
-        <activity
-            android:name=".activity.EditActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation|keyboardHidden|screenSize">
 
-        </activity>
-        <activity
-            android:name=".activity.ReviewActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation|keyboardHidden|screenSize">
 
-        </activity>
 
-        <activity
-            android:name=".PhotoViewActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-			android:configChanges="orientation|keyboardHidden">
-        </activity>
-		
-        <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="580ccd4d75ca353908005598" />    
-        <meta-data
-            android:name="UMENG_CHANNEL"
-            android:value="CODING"/>
+        <service android:name="com.zzh.blunocoin.bluno.BluetoothLeService" android:enabled="true"/>
+
         
     </application>
 </manifest>

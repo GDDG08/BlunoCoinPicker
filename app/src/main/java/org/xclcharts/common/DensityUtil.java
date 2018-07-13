@@ -23,7 +23,6 @@ package org.xclcharts.common;
 
 import android.content.Context;
 import android.view.View;
-import android.a.k.*;
 
 /**
  * @ClassName DensityUtil
