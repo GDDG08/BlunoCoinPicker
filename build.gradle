@@ -8,6 +8,11 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.2'
 
+
+        //这里配置 apt 供butterknife使用
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+
+        classpath 'com.jakewharton:butterknife-gradle-plugin:8.8.1'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -16,6 +21,16 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        google()
+    }
+}
+configurations.all {
+    resolutionStrategy {
+        force "com.android.support:appcompat-v7:27.1.0"
+
+        force 'com.android.support:design:27.1.0'
+
+        force 'com.android.support:support-v4:27.1.0'
     }
 }
 
