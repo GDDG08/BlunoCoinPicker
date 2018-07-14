@@ -6,7 +6,7 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:fitsSystemWindows="true"
-	tools:context="com.zzh.bamboobook.MainActivity">
+	tools:context="com.zzh.blunocoin.MainActivity">
 
 	<android.support.design.widget.AppBarLayout
 		android:layout_height="wrap_content"

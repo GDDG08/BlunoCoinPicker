@@ -1,8 +1,11 @@
 package com.zzh.blunocoin.data;
+import android.bluetooth.BluetoothGatt;
 import android.widget.*;
 import java.util.*;
 import android.app.*;
 import android.os.*;
+
+import com.zzh.blunocoin.bluno.BluetoothLeService;
 import com.zzh.blunocoin.tool.*;
 import com.zzh.blunocoin.*;
 
@@ -37,7 +40,10 @@ public class Varinfo
 	 10:PhotoView
 
      */
-
+//Bluno
+	public static BluetoothGatt mBluetoothGatt;
+    public static BluetoothLeService mBluetoothLeService;
+    public static boolean connected=false;
 
 
 	public static Bundle save2(Bundle b)

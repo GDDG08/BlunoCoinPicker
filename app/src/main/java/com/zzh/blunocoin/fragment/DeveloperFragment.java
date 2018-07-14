@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatTextView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,22 +16,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.larswerkman.holocolorpicker.ColorPicker;
 import com.zzh.blunocoin.R;
-import com.zzh.blunocoin.bluno.BlunoLibrary;
 import com.zzh.blunocoin.bluno.data.Message;
 import com.zzh.blunocoin.data.MathAI;
 import com.zzh.blunocoin.data.Varinfo;
 import com.zzh.blunocoin.tool.MyFragment;
 
-
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 
-public class ConnectFragment extends MyFragment {
+public class DeveloperFragment extends MyFragment {
 //    @BindView(R.id.Coin10)
 //    TextView Coin10;
 //    @BindView(R.id.Coin5)
@@ -67,7 +62,7 @@ public class ConnectFragment extends MyFragment {
 
     SeekBar seekBar;
 
-    com.larswerkman.holocolorpicker.ColorPicker picker;
+    ColorPicker picker;
 
     LinearLayout TestLayout;
 
@@ -127,7 +122,7 @@ public class ConnectFragment extends MyFragment {
 
         seekBar=(SeekBar) view.findViewById(R.id.seekBar);
 
-        picker=(com.larswerkman.holocolorpicker.ColorPicker)view.findViewById(R.id.picker);
+        picker=(ColorPicker)view.findViewById(R.id.picker);
 
         TestLayout=(LinearLayout)view.findViewById(R.id.TestLayout);
 
@@ -143,7 +138,7 @@ public class ConnectFragment extends MyFragment {
 
         editText2=(AppCompatTextView)view.findViewById(R.id.editText2);
 
-        
+
 
 
         buttonSerialSend.setOnClickListener(new View.OnClickListener() {
@@ -261,11 +256,10 @@ public class ConnectFragment extends MyFragment {
     }
 
     @Override
-    public void onConectionStateChange(BlunoLibrary.connectionStateEnum theConnectionState) {//Once connection state changes, this function will be called
+    public void onConectionStateChange(connectionStateEnum theConnectionState) {//Once connection state changes, this function will be called
         switch (theConnectionState) {                                            //Four connection state
             case isConnected:
                 buttonScan.setText("Connected");
-                Varinfo.connected=true;
                 break;
             case isConnecting:
                 buttonScan.setText("Connecting");
@@ -278,7 +272,6 @@ public class ConnectFragment extends MyFragment {
                 break;
             case isDisconnecting:
                 buttonScan.setText("isDisconnecting");
-                Varinfo.connected=false;
                 break;
             default:
                 break;

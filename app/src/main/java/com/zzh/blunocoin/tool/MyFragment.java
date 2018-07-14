@@ -6,10 +6,12 @@ import android.content.res.*;
 import android.os.*;
 import android.support.annotation.*;
 import android.view.*;
+
+import com.zzh.blunocoin.bluno.BlunoLibrary;
 import com.zzh.blunocoin.data.*;
 import com.zzh.blunocoin.fragment.*;
 
-public class MyFragment extends Fragment
+public class MyFragment extends BlunoLibrary
 {
 	Boolean first=true;
     @Override
@@ -82,6 +84,16 @@ public class MyFragment extends Fragment
 		return anim;
 	}
 
+    @Override
+    public void onConectionStateChange(connectionStateEnum theconnectionStateEnum) {
+
+    }
+
+    @Override
+    public void onSerialReceived(String theString) {
+
+    }
+
 	/*public Context context;
 	@Override
 	public void onAttach(Context con)
@@ -133,5 +145,32 @@ public class MyFragment extends Fragment
         
         outState.putBoolean(STATE_SAVE_IS_HIDDEN, isHidden());
     }*/
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        IntentFilter filter = new IntentFilter(mBluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED);
+        getActivity().registerReceiver(mGattUpdateReceiver, filter);
+        filter = new IntentFilter(mBluetoothLeService.ACTION_GATT_CONNECTED);
+        getActivity().registerReceiver(mGattUpdateReceiver, filter);
+        filter = new IntentFilter(mBluetoothLeService.ACTION_DATA_AVAILABLE);
+        getActivity().registerReceiver(mGattUpdateReceiver, filter);
+        filter = new IntentFilter(mBluetoothLeService.ACTION_GATT_DISCONNECTED);
+        getActivity().registerReceiver(mGattUpdateReceiver, filter);
+
+        // this.updateUI();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        getActivity().unregisterReceiver(mGattUpdateReceiver);
+
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        onActivityResultProcess(requestCode, resultCode, data);                    //onActivityResult Process by BlunoLibrary
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 	
 }

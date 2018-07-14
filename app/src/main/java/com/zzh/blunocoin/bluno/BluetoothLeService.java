@@ -32,6 +32,8 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
 
+import com.zzh.blunocoin.data.Varinfo;
+
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
@@ -45,7 +47,7 @@ public class BluetoothLeService extends Service {
 
     private BluetoothManager mBluetoothManager;
     private BluetoothAdapter mBluetoothAdapter;
-    BluetoothGatt mBluetoothGatt;
+    private BluetoothGatt mBluetoothGatt;
     public String mBluetoothDeviceAddress;
     
     private static final int STATE_DISCONNECTED = 0;
@@ -124,6 +126,7 @@ public class BluetoothLeService extends Service {
         	System.out.println("onServicesDiscovered "+status);
             if (status == BluetoothGatt.GATT_SUCCESS) {
                 broadcastUpdate(ACTION_GATT_SERVICES_DISCOVERED);
+                System.out.println("onServicesDiscovered broad");
             } else {
                 Log.w(TAG, "onServicesDiscovered received: " + status);
             }
@@ -360,6 +363,8 @@ public class BluetoothLeService extends Service {
             if (mBluetoothManager == null) {
                 Log.e(TAG, "Unable to initialize BluetoothManager.");
                 return false;
+            }else{
+                System.out.println("BluetoothLeService REinitialize"+mBluetoothManager);
             }
         }
 
@@ -386,6 +391,7 @@ public class BluetoothLeService extends Service {
     	System.out.println("BluetoothLeService connect"+address+mBluetoothGatt);
         if (mBluetoothAdapter == null || address == null) {
             Log.w(TAG, "BluetoothAdapter not initialized or unspecified address.");
+            mBluetoothGatt= Varinfo.mBluetoothGatt;
             return false;
         }
 
@@ -414,6 +420,7 @@ public class BluetoothLeService extends Service {
 		synchronized(this)
 		{
 			mBluetoothGatt = device.connectGatt(this, false, mGattCallback);
+			Varinfo.mBluetoothGatt=mBluetoothGatt;
 		}
         Log.d(TAG, "Trying to create a new connection.");
         mBluetoothDeviceAddress = address;
@@ -431,6 +438,7 @@ public class BluetoothLeService extends Service {
     	System.out.println("BluetoothLeService disconnect");
         if (mBluetoothAdapter == null || mBluetoothGatt == null) {
             Log.w(TAG, "BluetoothAdapter not initialized");
+            mBluetoothGatt= Varinfo.mBluetoothGatt;
             return;
         }
         mBluetoothGatt.disconnect();
@@ -443,6 +451,7 @@ public class BluetoothLeService extends Service {
     public void close() {
     	System.out.println("BluetoothLeService close");
         if (mBluetoothGatt == null) {
+
             return;
         }
         mBluetoothGatt.close();
@@ -459,6 +468,7 @@ public class BluetoothLeService extends Service {
     public void readCharacteristic(BluetoothGattCharacteristic characteristic) {
         if (mBluetoothAdapter == null || mBluetoothGatt == null) {
             Log.w(TAG, "BluetoothAdapter not initialized");
+            mBluetoothGatt= Varinfo.mBluetoothGatt;
             return;
         }
         mBluetoothGatt.readCharacteristic(characteristic);
@@ -475,6 +485,7 @@ public class BluetoothLeService extends Service {
     public void writeCharacteristic(BluetoothGattCharacteristic characteristic) {
         if (mBluetoothAdapter == null || mBluetoothGatt == null) {
             Log.w(TAG, "BluetoothAdapter not initialized");
+            mBluetoothGatt= Varinfo.mBluetoothGatt;
             return;
         }
         
@@ -510,6 +521,7 @@ public class BluetoothLeService extends Service {
                                               boolean enabled) {
         if (mBluetoothAdapter == null || mBluetoothGatt == null) {
             Log.w(TAG, "BluetoothAdapter not initialized");
+            mBluetoothGatt= Varinfo.mBluetoothGatt;
             return;
         }
         mBluetoothGatt.setCharacteristicNotification(characteristic, enabled);
@@ -534,7 +546,9 @@ public class BluetoothLeService extends Service {
      * @return A {@code List} of supported services.
      */
     public List<BluetoothGattService> getSupportedGattServices() {
-        if (mBluetoothGatt == null) return null;
+        if (mBluetoothGatt == null) {
+         mBluetoothGatt= Varinfo.mBluetoothGatt;
+        }
 
         return mBluetoothGatt.getServices();
     }
