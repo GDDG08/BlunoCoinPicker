@@ -52,9 +52,8 @@ public class ConnectFragment extends MyFragment {
         Varinfo.page = 2;
         view = inflater.inflate(R.layout.content_connect, container, false);
         context = getActivity();
-
-        content();
         mButterKnife = ButterKnife.bind(this, view);
+        content();
         onCreateProcess(context);                                                        //onCreate Process by BlunoLibrary
         serialBegin(115200);
         return view;
@@ -62,33 +61,24 @@ public class ConnectFragment extends MyFragment {
 
     @OnClick(R.id.buttonScan)
     void finishA(View view) {
-        buttonScanOnClickProcess();
+        //buttonScanOnClickProcess();
+
+                String mDeviceName="GDDG Bluno";
+                String mDeviceAddress="88:33:14:DC:6F:F8";
+
+                if (mBluetoothLeService.connect(mDeviceAddress)) {
+//                    Log.d(TAG, "Connect request success");
+                    mConnectionState= connectionStateEnum.isConnecting;
+                    onConectionStateChange(mConnectionState);
+                    mHandler.postDelayed(mConnectingOverTimeRunnable, 10000);
+                }
+                else {
+//                    Log.d(TAG, "Connect request fail");
+                    mConnectionState= connectionStateEnum.isToScan;
+                    onConectionStateChange(mConnectionState);
+                }                                    //Alert Dialog for selecting the BLE device
     }
     void content() {
-       /* buttonScan.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-
-                buttonScanOnClickProcess();
-
-//                String mDeviceName="GDDG Bluno";
-//                String mDeviceAddress="88:33:14:DC:6F:F8";
-//
-//                if (mBluetoothLeService.connect(mDeviceAddress)) {
-////                    Log.d(TAG, "Connect request success");
-//                    mConnectionState= BlunoLibrary.connectionStateEnum.isConnecting;
-//                    onConectionStateChange(mConnectionState);
-//                    mHandler.postDelayed(mConnectingOverTimeRunnable, 10000);
-//                }
-//                else {
-////                    Log.d(TAG, "Connect request fail");
-//                    mConnectionState= BlunoLibrary.connectionStateEnum.isToScan;
-//                    onConectionStateChange(mConnectionState);
-//                }                                    //Alert Dialog for selecting the BLE device
-            }
-        });*/
 
     }
 
@@ -97,7 +87,28 @@ public class ConnectFragment extends MyFragment {
         super.onDestroyView();
         mButterKnife.unbind();
     }
-
+    @Override
+    public void onConectionStateChange(connectionStateEnum theConnectionState) {//Once connection state changes, this function will be called
+        switch (theConnectionState) {                                            //Four connection state
+            case isConnected:
+                buttonScan.setText("Connected");
+                break;
+            case isConnecting:
+                buttonScan.setText("Connecting");
+                break;
+            case isToScan:
+                buttonScan.setText("Scan");
+                break;
+            case isScanning:
+                buttonScan.setText("Scanning");
+                break;
+            case isDisconnecting:
+                buttonScan.setText("isDisconnecting");
+                break;
+            default:
+                break;
+        }
+    }
 /*
     private String onreceive = "";
     private String received = "";

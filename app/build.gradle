@@ -1,5 +1,5 @@
-
 apply plugin: 'com.android.application'
+
 android {
     compileSdkVersion 27
     buildToolsVersion '27.0.3'
@@ -8,8 +8,8 @@ android {
         applicationId "com.zzh.blunocoin"
         minSdkVersion 23
         targetSdkVersion 27
-        versionCode 30366780
-        versionName "6.6.6-≧∇≦"
+        versionCode 1
+        versionName "1.0"
 
         javaCompileOptions {
             // 显式声明支持注解
@@ -41,19 +41,17 @@ configurations.all {
     }
 }
 dependencies {
-    compile 'com.android.support:recyclerview-v7:27.1.0'
-    compile 'com.android.support:cardview-v7:27.0.0'
-    compile 'com.android.support:design:27.1.0'
-    compile 'com.android.support:appcompat-v7:27.1.0'
-    compile 'com.android.support:support-v4:+'
-    compile 'com.github.chrisbanes:PhotoView:+'
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
-    compile 'com.google.code.gson:gson:+'
-    compile 'com.jakewharton:butterknife:8.8.1'
+    implementation 'com.android.support:recyclerview-v7:27.1.0'
+    implementation 'com.android.support:design:27.1.0'
+    implementation 'com.android.support:appcompat-v7:27.1.0'
+    implementation 'com.android.support:support-v4:+'
+    implementation 'com.github.chrisbanes:PhotoView:+'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.google.code.gson:gson:+'
+    implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-
-    compile 'com.larswerkman:HoloColorPicker:1.5'
+    implementation 'com.larswerkman:HoloColorPicker:1.5'
+    implementation 'com.android.support.constraint:constraint-layout:2.0.0-alpha1'
 }
 
 

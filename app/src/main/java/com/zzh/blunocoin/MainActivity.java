@@ -300,13 +300,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public Boolean checklogin() {
-        Boolean connected = Varinfo.connected;
+       /* Boolean connected = Varinfo.connected;
         if (!connected) {
             Toast.makeText(this, getString(R.string.drawer_notconnected), Toast.LENGTH_LONG).show();
             Page(new ConnectFragment());
         }
-        return connected;
-        //return !Varinfo.preferences_login.getString("cookie-value", "0").equals("0");
+        return connected;*/
+        //调试
+        return true;
     }
 
 

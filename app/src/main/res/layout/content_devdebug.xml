@@ -85,14 +85,48 @@
             android:id="@+id/seekBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_weight="1"
             android:max="360" />
 
-        <com.larswerkman.holocolorpicker.ColorPicker
-            android:id="@+id/picker"
-            android:layout_width="wrap_content"
+        <Switch
+            android:id="@+id/dev_switch1_light"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:text="呼吸灯" />
+
+        <Switch
+            android:id="@+id/dev_switch2_light_single"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="单灯光呼吸" />
+
+        <Switch
+            android:id="@+id/dev_switch3_bluebit1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="BlueBit模式一" />
+
+        <Switch
+            android:id="@+id/dev_switch4_bluebit2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="BlueBit模式二" />
+
+        <Button
+            android:id="@+id/dev_button_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120dp"
+            android:layout_marginRight="120dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:text="收发测试" />
 
     </LinearLayout>
 
@@ -112,7 +146,7 @@
             android:layout_below="@+id/editText2">
 
             <TextView
-                android:id="@+id/serialReveicedText"
+                android:id="@+id/serialReceivedText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignEnd="@+id/serialSendText"
@@ -125,32 +159,25 @@
 
         <Button
             android:id="@+id/buttonSerialSend"
-            android:layout_width="wrap_content"
+            android:layout_width="107dp"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/serialSendText"
-            android:layout_alignRight="@+id/serialSendText"
+            android:layout_above="@+id/editText2"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="-73dp"
             android:text="Send Data" />
-
-        <Button
-            android:id="@+id/buttonScan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/serialSendText"
-            android:layout_alignParentTop="true"
-            android:text="Scan" />
 
         <EditText
             android:id="@+id/serialSendText"
-            android:layout_width="310dp"
+            android:layout_width="250dp"
             android:layout_height="40dp"
-            android:layout_below="@+id/buttonScan"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="22dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/buttonSerialSend"
+            android:layout_marginStart="15dp"
             android:background="#555555"
             android:bufferType="editable"
             android:ems="10"
-            android:inputType="text"
             android:hint="Data sending Area"
+            android:inputType="text"
             android:textColor="#999999"
             android:textSize="20dip" />
 
@@ -158,9 +185,9 @@
             android:id="@+id/editText2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/serialSendText"
-            android:layout_below="@+id/serialSendText"
-            android:layout_marginTop="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/serialSendText"
+            android:layout_marginTop="73dp"
             android:ems="10"
             android:text="Received Data:"
             android:textSize="25sp" />
