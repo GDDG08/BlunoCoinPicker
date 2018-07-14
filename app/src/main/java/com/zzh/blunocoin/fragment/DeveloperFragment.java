@@ -85,14 +85,14 @@ public class DeveloperFragment extends MyFragment {
 
     @Override
     public void onResume() {
-        Varinfo.page = 2;
+        Varinfo.page = 6;
         super.onResume();
     }
 
     @Override
     public void onHiddenChanged(boolean hidden) {
         if (!hidden) {
-            Varinfo.page = 2;
+            Varinfo.page = 6;
         }
         super.onHiddenChanged(hidden);
     }
@@ -100,8 +100,8 @@ public class DeveloperFragment extends MyFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Varinfo.page = 2;
-        view = inflater.inflate(R.layout.content_connect, container, false);
+        Varinfo.page = 6;
+        view = inflater.inflate(R.layout.content_devdebug, container, false);
         context = getActivity();
 
         content();

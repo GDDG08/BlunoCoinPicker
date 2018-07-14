@@ -31,13 +31,24 @@
     <string name="unknown_device">Unknown device</string>
     <string name="unknown_characteristic">Unknown characteristic</string>
     <string name="unknown_service">Unknown service</string>
+    <!-- Bluno DFrobot Demo END -->
 
     <!-- Menu items -->
     <string name="menu_connect">Connect</string>
     <string name="menu_disconnect">Disconnect</string>
     <string name="menu_scan">Scan</string>
     <string name="menu_stop">Stop</string>
+    <string name="nav_main">首页</string>
+    <string name="nav_connect">设备连接</string>
+    <string name="nav_coin">智能硬币系统</string>
+    <string name="nav_light">科幻灯效</string>
+    <string name="nav_game">互动游戏</string>
+    <string name="nav_about">关于</string>
+    <string name="nav_dev">开发者设置</string>
+    <string name="nav_debug">设备调试</string>
+    <string name="nav_license">免责声明</string>
+    <string name="nav_help">使用帮助</string>
+    <string name="nav_joingroup">加入衡中3D打印社</string>
 
-    <!-- Bluno DFrobot Demo END -->
 
     </resources>

@@ -29,15 +29,11 @@ public class Varinfo
     /****type一览表*********/
     /*
      1:Main
-     2:Login
-     3:Trends
-     4:Rank
-     5:Member
-     6:Analysis
-	 7.Anas
-	 8:Paper
-	 9:PaperShow
-	 10:PhotoView
+     2:Connect
+     3:Coin
+     4:Light
+     5:Game
+     6:DevDebug
 
      */
 //Bluno

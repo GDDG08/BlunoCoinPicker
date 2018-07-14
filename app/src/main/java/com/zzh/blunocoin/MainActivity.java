@@ -97,7 +97,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //Varinfo.load(Varinfo.save(new Bundle()));
 
 
-
     }
 
 	/*@Override
@@ -173,7 +172,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 	 }*/
 
 
-
 //
 //
 //    @Override
@@ -238,8 +236,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) {
         int type = Varinfo.page;
         int id = item.getItemId();
-        if (id == R.id.nav_camera) {
-
+        if (id == R.id.nav_1_main) {
             if (type == 1) {
 
             } else {
@@ -247,98 +244,53 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 setTitle(R.string.app_name);
             }
 
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_2_connect) {
+            if (type != 2) {
+                Page(new ConnectFragment());
+            }
+        } else if (id == R.id.nav_3_coin) {
+
             if (type != 3) {
                 if (checklogin()) {
-                    //model(1);
-                    Page(new DeveloperFragment());
-                } else {
-                    Toast.makeText(this, getString(R.string.drawer_notconnected), Toast.LENGTH_LONG).show();
-                    Page(new ConnectFragment());
+
                 }
+            }
+        } else if (id == R.id.nav_4_light) {
 
-            } else {
-                // model(1);
-                // Page(new TrendsFragment());
+            if (type != 4) {
+                if (checklogin()) {
+
+                }
             }
-        } else if (id == R.id.nav_jifen) {
-            if (type == 4 | type == 3) {
-                // activity(2, MainActivity.class, null, true);
-                Page(new MainFragment());
-            }
+        } else if (id == R.id.nav_5_game) {
             if (type != 5) {
+                if (checklogin()) {
 
-                //web(this);
-                // activity(2, MemberActivity.class, null, true);
-                // Page(new MemberFragment());
+                }
             }
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_debug) {
+            if (type != 6) {
+                if (checklogin()) {
+                    Page(new DeveloperFragment());
+                }
+            }
+        } else if (id == R.id.nav_help) {
             //帮助
             //web("BZ");
-        } else if (id == R.id.nav_manage) {
+
+
+        } else if (id == R.id.nav_license) {
+            //免责
+            //web("MZ");
+        } else if (id == R.id.nav_joingroup) {
             Intent intent = new Intent();
             intent.setData(Uri.parse("mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26k%3D" + "vGFOdRd33MWoCnefFhpoJD4gPmg7O-kt"));
             // 此Flag可根据具体产品需要自定义，如设置，则在加群界面按返回，返回手Q主界面，不设置，按返回会返回到呼起产品界面
             //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             try {
                 startActivity(intent);
-                return true;
             } catch (Exception e) {
                 Toast.makeText(this, "未安装QQ或安装的版本不支持", Toast.LENGTH_LONG).show();
-                return false;
-            }
-
-
-        } else if (id == R.id.nav_share) {
-            if (type == 4 | type == 3) {
-                //  activity(2, MainActivity.class, null, true);
-                Page(new MainFragment());
-            }
-            if (type != 2) {
-                //  activity(2, LoginActivity.class, null, true);
-                Page(new ConnectFragment());
-                //Activity(EditActivity.class);
-            }
-        } else if (id == R.id.nav_send) {
-            //免责
-            //web("MZ");
-        } else if (id == R.id.nav_analysis) {
-
-            if (type != 3) {
-                if (checklogin()) {
-
-                    //    activity(2, TrendsActivity.class, "analysis", true);
-                    // model(2);
-                    //Page(new TrendsFragment());
-                } else {
-                    Toast.makeText(this, getString(R.string.drawer_notconnected), Toast.LENGTH_LONG).show();
-                    Page(new ConnectFragment());
-                }
-            } else {
-                // activity(2, TrendsActivity.class, "analysis", false);
-                //model(2);
-                //Page(new TrendsFragment());
-            }
-            //Toast.makeText(this,"试题分析功能正在更新中，暂时不可用哦！",1).show();
-        } else if (id == R.id.nav_paperdetail) {
-
-            if (type != 3) {
-                if (checklogin()) {
-
-                    //    activity(2, TrendsActivity.class, "analysis", true);
-                    //model(3);
-                    //Page(new TrendsFragment());
-                } else {
-                    Toast.makeText(this, getString(R.string.drawer_notconnected), Toast.LENGTH_LONG).show();
-
-                    //     activity(2, LoginActivity.class, null, true);
-                    Page(new ConnectFragment());
-                    //Activity(EditActivity.class);
-                }
-            } else {
-                // activity(2, TrendsActivity.class, "analysis", false);
-                //model(3);
-                //Page(new TrendsFragment());
             }
         }
 
@@ -348,7 +300,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public Boolean checklogin() {
-        return Varinfo.connected;
+        Boolean connected = Varinfo.connected;
+        if (!connected) {
+            Toast.makeText(this, getString(R.string.drawer_notconnected), Toast.LENGTH_LONG).show();
+            Page(new ConnectFragment());
+        }
+        return connected;
         //return !Varinfo.preferences_login.getString("cookie-value", "0").equals("0");
     }
 

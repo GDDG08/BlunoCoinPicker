@@ -3,52 +3,52 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_1_main"
             android:icon="@drawable/icon_home"
-            android:title="首页" />
+            android:title="@string/nav_main" />
         <item
-            android:id="@+id/nav_share"
+            android:id="@+id/nav_2_connect"
             android:icon="@drawable/icon_account"
-            android:title="登陆/切换账号" />
+            android:title="@string/nav_connect" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_3_coin"
             android:icon="@drawable/icon_rank"
-            android:title="查询考试信息" />
+            android:title="@string/nav_coin" />
         <item
-            android:id="@+id/nav_analysis"
+            android:id="@+id/nav_4_light"
             android:icon="@drawable/icon_analysis"
-            android:title="分析报告（NEW）"
+            android:title="@string/nav_light"
 			android:textColor="#FF1744"/>
         <item
-            android:id="@+id/nav_paperdetail"
+            android:id="@+id/nav_5_game"
             android:icon="@drawable/icon_paper"
-            android:title="试题解析（NEW）"
+            android:title="@string/nav_game"
 			android:textColor="#FF1744"/>
     </group>
  
-    <item android:title="♦用户中心♦">
+    <item android:title="@string/nav_dev">
         <menu>
             <item
-                android:id="@+id/nav_jifen"
+                android:id="@+id/nav_debug"
                 android:icon="@drawable/icon_member"
-                android:title="支持我们(۩⊙o⊙۩)" />
+                android:title="@string/nav_debug" />
         </menu>
     </item>
    
-    <item android:title="关于">
+    <item android:title="@string/nav_about">
         <menu>
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_license"
                 android:icon="@drawable/icon_web"
-                android:title="免责声明" />
+                android:title="@string/nav_license" />
             <item
-                android:id="@+id/nav_slideshow"
+                android:id="@+id/nav_help"
                 android:icon="@drawable/icon_link"
-                android:title="使用帮助" />
+                android:title="@string/nav_help" />
             <item
-                android:id="@+id/nav_manage"
+                android:id="@+id/nav_joingroup"
                 android:icon="@drawable/icon_message"
-                android:title="加入坏分数交流群" />
+                android:title="@string/nav_joingroup" />
         </menu>
     </item>
 

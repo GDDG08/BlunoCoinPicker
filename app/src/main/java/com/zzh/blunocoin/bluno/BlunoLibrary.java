@@ -594,17 +594,18 @@ public abstract  class BlunoLibrary  extends Fragment{
 	}
 
 	public void connect(){
-    	if (mSCharacteristic!=null)
-		System.out.println("42");
-		mBluetoothLeService.setCharacteristicNotification(mSCharacteristic, false);
-		mSCharacteristic = mCommandCharacteristic;
-		mSCharacteristic.setValue(mPassword);
-		mBluetoothLeService.writeCharacteristic(mSCharacteristic);
-		mSCharacteristic.setValue(mBaudrateBuffer);
-		mBluetoothLeService.writeCharacteristic(mSCharacteristic);
-		mSCharacteristic = mSerialPortCharacteristic;
-		mBluetoothLeService.setCharacteristicNotification(mSCharacteristic, true);
-		mConnectionState = connectionStateEnum.isConnected;
-		onConectionStateChange(mConnectionState);
+    	if (mSCharacteristic!=null) {
+            System.out.println("42");
+            mBluetoothLeService.setCharacteristicNotification(mSCharacteristic, false);
+            mSCharacteristic = mCommandCharacteristic;
+            mSCharacteristic.setValue(mPassword);
+            mBluetoothLeService.writeCharacteristic(mSCharacteristic);
+            mSCharacteristic.setValue(mBaudrateBuffer);
+            mBluetoothLeService.writeCharacteristic(mSCharacteristic);
+            mSCharacteristic = mSerialPortCharacteristic;
+            mBluetoothLeService.setCharacteristicNotification(mSCharacteristic, true);
+            mConnectionState = connectionStateEnum.isConnected;
+            onConectionStateChange(mConnectionState);
+        }
 	}
 }
