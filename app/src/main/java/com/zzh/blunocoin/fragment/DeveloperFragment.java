@@ -295,7 +295,7 @@ public class DeveloperFragment extends MyFragment {
             onreceive = "";
             Toast.makeText(context,received,Toast.LENGTH_LONG).show();
 //            try {
-//                testgson(received);
+                testgson(received);
 //            }
 //            catch (IllegalStateException e){
 //

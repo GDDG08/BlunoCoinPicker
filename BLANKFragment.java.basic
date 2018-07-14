@@ -6,27 +6,16 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ScrollView;
-import android.widget.TextView;
 
 import com.zzh.blunocoin.R;
 import com.zzh.blunocoin.data.Varinfo;
 import com.zzh.blunocoin.tool.MyFragment;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.Unbinder;
 
 
-public class ConnectFragment extends MyFragment {
-    @BindView(R.id.serialReveicedText)
-    TextView serialReveicedText;
-    @BindView(R.id.scrollView)
-    ScrollView scrollView;
-    @BindView(R.id.buttonScan)
-    Button buttonScan;
+public class BLANKFragment extends MyFragment {
     private View view;
     private static Context context;
 
@@ -34,14 +23,14 @@ public class ConnectFragment extends MyFragment {
 
     @Override
     public void onResume() {
-        Varinfo.page = 2;
+        Varinfo.page = *;
         super.onResume();
     }
 
     @Override
     public void onHiddenChanged(boolean hidden) {
         if (!hidden) {
-            Varinfo.page = 2;
+            Varinfo.page = *;
         }
         super.onHiddenChanged(hidden);
     }
@@ -49,46 +38,19 @@ public class ConnectFragment extends MyFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Varinfo.page = 2;
+        Varinfo.page = *;
         view = inflater.inflate(R.layout.content_connect, container, false);
         context = getActivity();
 
         content();
-        mButterKnife = ButterKnife.bind(this, view);
+        mButterKnife=ButterKnife.bind(this, view);
         onCreateProcess(context);                                                        //onCreate Process by BlunoLibrary
         serialBegin(115200);
         return view;
     }
 
-    @OnClick(R.id.buttonScan)
-    void finishA(View view) {
-        buttonScanOnClickProcess();
-    }
     void content() {
-       /* buttonScan.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-
-                buttonScanOnClickProcess();
-
-//                String mDeviceName="GDDG Bluno";
-//                String mDeviceAddress="88:33:14:DC:6F:F8";
-//
-//                if (mBluetoothLeService.connect(mDeviceAddress)) {
-////                    Log.d(TAG, "Connect request success");
-//                    mConnectionState= BlunoLibrary.connectionStateEnum.isConnecting;
-//                    onConectionStateChange(mConnectionState);
-//                    mHandler.postDelayed(mConnectingOverTimeRunnable, 10000);
-//                }
-//                else {
-////                    Log.d(TAG, "Connect request fail");
-//                    mConnectionState= BlunoLibrary.connectionStateEnum.isToScan;
-//                    onConectionStateChange(mConnectionState);
-//                }                                    //Alert Dialog for selecting the BLE device
-            }
-        });*/
 
     }
 
