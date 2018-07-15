@@ -1,15 +1,18 @@
 package com.zzh.blunocoin.fragment;
 
 import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.skyfishjy.library.RippleBackground;
 import com.zzh.blunocoin.R;
 import com.zzh.blunocoin.data.Varinfo;
 import com.zzh.blunocoin.tool.MyFragment;
@@ -21,16 +24,21 @@ import butterknife.Unbinder;
 
 
 public class ConnectFragment extends MyFragment {
-    @BindView(R.id.serialReveicedText)
-    TextView serialReveicedText;
-    @BindView(R.id.scrollView)
-    ScrollView scrollView;
+
     @BindView(R.id.buttonScan)
     Button buttonScan;
+    @BindView(R.id.imageView_animate)
+    ImageView imageViewAnimate;
+    @BindView(R.id.centerImage)
+    ImageView centerImage;
+    @BindView(R.id.content)
+    RippleBackground content;
+
     private View view;
     private static Context context;
 
     private Unbinder mButterKnife;
+    private AnimationDrawable animationDrawable;
 
     @Override
     public void onResume() {
@@ -63,23 +71,39 @@ public class ConnectFragment extends MyFragment {
     void finishA(View view) {
         //buttonScanOnClickProcess();
 
-                String mDeviceName="GDDG Bluno";
-                String mDeviceAddress="88:33:14:DC:6F:F8";
+        if (Varinfo.connected) {
 
-                if (mBluetoothLeService.connect(mDeviceAddress)) {
+           buttonScanOnClickProcess();
+            //Varinfo.connected=false;
+        } else {
+
+            String mDeviceName = "GDDG Bluno";
+            String mDeviceAddress = "88:33:14:DC:6F:F8";
+
+            if (mBluetoothLeService.connect(mDeviceAddress)) {
 //                    Log.d(TAG, "Connect request success");
-                    mConnectionState= connectionStateEnum.isConnecting;
-                    onConectionStateChange(mConnectionState);
-                    mHandler.postDelayed(mConnectingOverTimeRunnable, 10000);
-                }
-                else {
+                mConnectionState = connectionStateEnum.isConnecting;
+                onConectionStateChange(mConnectionState);
+                mHandler.postDelayed(mConnectingOverTimeRunnable, 10000);
+            } else {
 //                    Log.d(TAG, "Connect request fail");
-                    mConnectionState= connectionStateEnum.isToScan;
-                    onConectionStateChange(mConnectionState);
-                }                                    //Alert Dialog for selecting the BLE device
-    }
-    void content() {
+                mConnectionState = connectionStateEnum.isToScan;
+                onConectionStateChange(mConnectionState);
+            }                                    //Alert Dialog for selecting the BLE device
 
+        }
+    }
+
+    @OnClick(R.id.imageView_animate)
+    public void onViewClicked() {
+
+
+    }
+
+    void content() {
+       /* animationDrawable = (AnimationDrawable) getResources().getDrawable(
+                R.drawable.frame_appearance);
+        imageViewAnimate.setBackground(animationDrawable);*/
     }
 
     @Override
@@ -87,28 +111,49 @@ public class ConnectFragment extends MyFragment {
         super.onDestroyView();
         mButterKnife.unbind();
     }
+
     @Override
     public void onConectionStateChange(connectionStateEnum theConnectionState) {//Once connection state changes, this function will be called
         switch (theConnectionState) {                                            //Four connection state
             case isConnected:
                 buttonScan.setText("Connected");
+                Varinfo.connected = true;
+                content.stopRippleAnimation();
                 break;
             case isConnecting:
                 buttonScan.setText("Connecting");
+                content.startRippleAnimation();
                 break;
             case isToScan:
                 buttonScan.setText("Scan");
+                Varinfo.connected = false;
+                content.stopRippleAnimation();
                 break;
             case isScanning:
                 buttonScan.setText("Scanning");
                 break;
             case isDisconnecting:
                 buttonScan.setText("isDisconnecting");
+                Varinfo.connected = false;
                 break;
             default:
                 break;
         }
     }
+
+    @OnClick({R.id.centerImage, R.id.content})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.centerImage:
+                content.startRippleAnimation();
+                break;
+            case R.id.content:
+                content.startRippleAnimation();
+                break;
+        }
+    }
+
+
 /*
     private String onreceive = "";
     private String received = "";

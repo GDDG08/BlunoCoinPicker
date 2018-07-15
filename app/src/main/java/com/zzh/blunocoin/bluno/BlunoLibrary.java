@@ -48,7 +48,6 @@ public abstract  class BlunoLibrary  extends Fragment{
 	public abstract void onConectionStateChange(connectionStateEnum theconnectionStateEnum);
 	public abstract void onSerialReceived(String theString);
 	public void serialSend(String theString){
-		System.out.println("666"+mConnectionState+"777"+connectionStateEnum.isConnected);
 		if (mConnectionState == connectionStateEnum.isConnected) {
 			mSCharacteristic.setValue(theString);
 			mBluetoothLeService.writeCharacteristic(mSCharacteristic);
@@ -345,6 +344,7 @@ public abstract  class BlunoLibrary  extends Fragment{
             	
             
             	System.out.println("displayData "+intent.getStringExtra(BluetoothLeService.EXTRA_DATA));
+				System.out.println("666"+mConnectionState+"777"+connectionStateEnum.isConnected);
 				if (mConnectionState!=connectionStateEnum.isConnected) {
 					connect();
 				}

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.zzh.blunocoin.R;
+import com.zzh.blunocoin.bluno.BlunoLibrary;
 import com.zzh.blunocoin.data.Varinfo;
 import com.zzh.blunocoin.tool.MyFragment;
 
@@ -23,7 +24,7 @@ public class MainFragment extends MyFragment {
 
 //    @BindView(R.id.main666)
 //    TextView main666;
-//    Unbinder unbinder;
+    Unbinder unbinder;
     private View view;
 
     private Context context;
@@ -31,9 +32,31 @@ public class MainFragment extends MyFragment {
     @Override
     public void onResume() {
         Varinfo.page = 1;
+       // onResumeProcess();
         // getActivity().setTitle(R.string.app_name);
         super.onResume();
     }
+
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//        onPauseProcess();
+//        //if(!Varinfo.hasservice) finish();
+//    }
+//
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+//        onStopProcess();
+//        // finish();
+//    }
+//
+//    @Override
+//    public void onDestroy() {
+//        //finish();
+//        super.onDestroy();
+//        onDestroyProcess();
+//    }
 
     @Override
     public void onHiddenChanged(boolean hidden) {
@@ -56,7 +79,7 @@ public class MainFragment extends MyFragment {
         // MT.finish();
         Varinfo.page_container.setVisibility(View.VISIBLE);
         Varinfo.page_progress.setVisibility(View.GONE);
-//        unbinder = ButterKnife.bind(this, getView());
+        unbinder = ButterKnife.bind(this, getView());
         return view;
     }
 
@@ -85,6 +108,8 @@ public class MainFragment extends MyFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-//        unbinder.unbind();
+        unbinder.unbind();
     }
+
+
 }

@@ -52,6 +52,7 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation 'com.larswerkman:HoloColorPicker:1.5'
     implementation 'com.android.support.constraint:constraint-layout:2.0.0-alpha1'
+    implementation project(':RippleLibrary')
 }
 
 

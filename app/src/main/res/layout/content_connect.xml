@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
@@ -11,51 +12,47 @@
 	android:focusable="true"
 	android:focusableInTouchMode="true">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp">
+	<ImageView
+		android:id="@+id/imageView_animate"
+		android:layout_width="wrap_content"
+		android:layout_height="207dp"
+		android:layout_alignParentStart="true"
+		android:layout_alignParentTop="true"
+		android:src="@mipmap/coin_aer_390" />
 
-        <ScrollView
-            android:id="@+id/scrollView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/serialSendText"
-            android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/editText2"
-            android:layout_below="@+id/editText2">
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_below="@+id/imageView_animate"
+		android:layout_marginTop="0dp">
 
-            <TextView
-                android:id="@+id/serialReveicedText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/serialSendText"
-                android:layout_alignParentBottom="true"
-                android:layout_alignStart="@+id/editText2"
-                android:layout_below="@+id/editText2"
-                android:ems="10"
-                android:textSize="10sp" />
-        </ScrollView>
+		<Button
+			android:id="@+id/buttonScan"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignLeft="@+id/serialSendText"
+			android:layout_alignParentTop="true"
+			android:text="Scan" />
 
-        <Button
-            android:id="@+id/buttonScan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/serialSendText"
-            android:layout_alignParentTop="true"
-            android:text="Scan" />
+		<com.skyfishjy.library.RippleBackground xmlns:android="http://schemas.android.com/apk/res/android"
+			xmlns:app="http://schemas.android.com/apk/res-auto"
+			android:id="@+id/content"
+			android:layout_width="match_parent"
+			android:layout_height="400dp"
+			app:rb_color="#0099CC"
+			app:rb_duration="3000"
+			app:rb_radius="32dp"
+			app:rb_rippleAmount="4"
+			app:rb_scale="6">
 
-        <TextView
-            android:id="@+id/editText2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/serialSendText"
-            android:layout_below="@+id/buttonScan"
-            android:layout_marginTop="20dp"
-            android:ems="10"
-            android:text="Received Data:"
-            android:textSize="25sp" />
-    </RelativeLayout>
+			<ImageView
+				android:id="@+id/centerImage"
+				android:layout_width="64dp"
+				android:layout_height="64dp"
+				android:layout_centerInParent="true"
+				android:src="@mipmap/splash" />
+		</com.skyfishjy.library.RippleBackground>
+	</RelativeLayout>
 
 </RelativeLayout>
 

@@ -6,15 +6,6 @@
 
     <string name="action_settings">Settings</string>
 
-    
-    <string name="title_rank">考试信息</string>
-    <string name="title_ana">分析报告</string>
-    <string name="title_pap">试题解析</string>
-
-	
-	<string name="shortcuts_name">彩蛋</string>
-	<string name="shortcuts_longname">坏分数PLUS彩蛋</string>
-	<string name="shortcuts_disabled">已禁用.</string>
 
     <string name="drawer_notconnected">设备未连接</string>
 

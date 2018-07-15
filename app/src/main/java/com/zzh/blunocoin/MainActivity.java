@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.zzh.blunocoin.bluno.BlunoLibrary;
 import com.zzh.blunocoin.data.Varinfo;
+import com.zzh.blunocoin.fragment.CoinFragment;
 import com.zzh.blunocoin.fragment.ConnectFragment;
 import com.zzh.blunocoin.fragment.DeveloperFragment;
 import com.zzh.blunocoin.fragment.MainFragment;
@@ -172,7 +173,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 	 }*/
 
 
-//
+
 //
 //    @Override
 //    public void onResume() {
@@ -252,7 +253,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             if (type != 3) {
                 if (checklogin()) {
-
+                    Page(new CoinFragment());
                 }
             }
         } else if (id == R.id.nav_4_light) {
@@ -300,14 +301,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public Boolean checklogin() {
-       /* Boolean connected = Varinfo.connected;
+        Boolean connected = Varinfo.connected;
         if (!connected) {
             Toast.makeText(this, getString(R.string.drawer_notconnected), Toast.LENGTH_LONG).show();
             Page(new ConnectFragment());
         }
-        return connected;*/
-        //调试
-        return true;
+        return connected;
+//        //调试
+//        return true;
     }
 
 

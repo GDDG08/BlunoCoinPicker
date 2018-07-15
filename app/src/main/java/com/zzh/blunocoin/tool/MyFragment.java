@@ -161,12 +161,12 @@ public class MyFragment extends BlunoLibrary
         // this.updateUI();
     }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        getActivity().unregisterReceiver(mGattUpdateReceiver);
-
-    }
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+//        getActivity().unregisterReceiver(mGattUpdateReceiver);
+//
+//    }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         onActivityResultProcess(requestCode, resultCode, data);                    //onActivityResult Process by BlunoLibrary
