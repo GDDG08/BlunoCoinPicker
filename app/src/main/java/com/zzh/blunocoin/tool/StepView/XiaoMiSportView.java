@@ -259,14 +259,20 @@ public class XiaoMiSportView extends View {
         //具体的步数
         paint_4.setTextSize(radius / 2);
         paint_4.setColor(Color.WHITE);
-        String show=currentNum + "";
-        float c = -paint_4.measureText(show) / 2;
+        String num=currentNum+"";
+        String show = "";
+        if (currentNum<10){
+            show = "0."+currentNum;
+        }else {
+            show = num.substring(0, num.length() - 1) + "." + num.substring(num.length() - 1, num.length());
+        }
+        float c = -(paint_4.measureText(show) /*+30*/)/ 2;
         canvas.drawText(show, c, 0, paint_4);
 
         Rect r = new Rect();
         //数字步
         paint_4.setTextSize(radius / 8);
-        canvas.drawText("元", paint_4.measureText(currentNum + "") * 2, 0, paint_4);
+        canvas.drawText("元", paint_4.measureText(show) * 2, 0, paint_4);
 
 //       消耗的文字显示
         paint_4.setTextSize(radius / 6);

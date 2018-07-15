@@ -41,9 +41,8 @@ public class BLANKFragment extends MyFragment {
         Varinfo.page = *;
         view = inflater.inflate(R.layout.content_connect, container, false);
         context = getActivity();
-
-        content();
         mButterKnife=ButterKnife.bind(this, view);
+        content();
         onCreateProcess(context);                                                        //onCreate Process by BlunoLibrary
         serialBegin(115200);
         return view;
