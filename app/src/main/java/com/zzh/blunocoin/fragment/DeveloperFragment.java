@@ -67,6 +67,7 @@ public class DeveloperFragment extends MyFragment {
     @Override
     public void onResume() {
         Varinfo.page = 6;
+        mButterKnife = ButterKnife.bind(this, getView());
         super.onResume();
     }
 

@@ -182,12 +182,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        onResumeProcess();
 //    }
 //
-//    @Override
-//    public void onPause() {
-//        super.onPause();
+    @Override
+    public void onPause() {
+        Varinfo.paused=true;
+        super.onPause();
 //        new BlunoLibrary.onPauseProcess();
-//        //if(!Varinfo.hasservice) finish();
-//    }
+        //if(!Varinfo.hasservice) finish();
+    }
 //
 //    @Override
 //    protected void onStop() {

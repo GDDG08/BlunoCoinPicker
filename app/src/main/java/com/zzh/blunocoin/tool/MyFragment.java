@@ -1,12 +1,14 @@
 package com.zzh.blunocoin.tool;
 import android.animation.*;
 import android.app.*;
+import android.bluetooth.BluetoothAdapter;
 import android.content.*;
 import android.content.res.*;
 import android.os.*;
 import android.support.annotation.*;
 import android.view.*;
 
+import com.zzh.blunocoin.bluno.BluetoothLeService;
 import com.zzh.blunocoin.bluno.BlunoLibrary;
 import com.zzh.blunocoin.data.*;
 import com.zzh.blunocoin.fragment.*;
@@ -148,7 +150,12 @@ public class MyFragment extends BlunoLibrary
 
     @Override
     public void onStart() {
-        super.onStart();
+        if (Varinfo.paused){
+            mBluetoothAdapter=Varinfo.mBluetoothAdapter;
+            mBluetoothLeService=Varinfo.mBluetoothLeService;
+            //onResumeProcess();
+            System.out.println("Paused恢复");
+        }
         IntentFilter filter = new IntentFilter(mBluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED);
         getActivity().registerReceiver(mGattUpdateReceiver, filter);
         filter = new IntentFilter(mBluetoothLeService.ACTION_GATT_CONNECTED);
@@ -157,7 +164,7 @@ public class MyFragment extends BlunoLibrary
         getActivity().registerReceiver(mGattUpdateReceiver, filter);
         filter = new IntentFilter(mBluetoothLeService.ACTION_GATT_DISCONNECTED);
         getActivity().registerReceiver(mGattUpdateReceiver, filter);
-
+        super.onStart();
         // this.updateUI();
     }
 

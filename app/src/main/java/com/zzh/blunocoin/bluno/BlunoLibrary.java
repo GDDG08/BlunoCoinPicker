@@ -78,7 +78,7 @@ public abstract  class BlunoLibrary  extends Fragment{
     private ArrayList<ArrayList<BluetoothGattCharacteristic>> mGattCharacteristics =
             new ArrayList<ArrayList<BluetoothGattCharacteristic>>();
 	private LeDeviceListAdapter mLeDeviceListAdapter=null;
-	private BluetoothAdapter mBluetoothAdapter;
+	public BluetoothAdapter mBluetoothAdapter;
 	private boolean mScanning =false;
 	AlertDialog mScanDeviceDialog;
     private String mDeviceName;
@@ -272,6 +272,7 @@ public abstract  class BlunoLibrary  extends Fragment{
 		// BluetoothAdapter through BluetoothManager.
 		final BluetoothManager bluetoothManager = (BluetoothManager) mainContext.getSystemService(Context.BLUETOOTH_SERVICE);
 		mBluetoothAdapter = bluetoothManager.getAdapter();
+		Varinfo.mBluetoothAdapter=mBluetoothAdapter;
 	
 		// Checks if Bluetooth is supported on the device.
 		if (mBluetoothAdapter == null) {

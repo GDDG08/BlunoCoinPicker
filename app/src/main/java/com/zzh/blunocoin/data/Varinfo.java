@@ -1,4 +1,5 @@
 package com.zzh.blunocoin.data;
+import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothGatt;
 import android.widget.*;
 import java.util.*;
@@ -39,7 +40,10 @@ public class Varinfo
 //Bluno
 	public static BluetoothGatt mBluetoothGatt;
     public static BluetoothLeService mBluetoothLeService;
+	public static BluetoothAdapter mBluetoothAdapter;
     public static boolean connected=false;
+
+    public static boolean paused=false;
 
 
 	public static Bundle save2(Bundle b)

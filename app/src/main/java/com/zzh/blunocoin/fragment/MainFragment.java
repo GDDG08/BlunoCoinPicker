@@ -34,6 +34,8 @@ public class MainFragment extends MyFragment {
         Varinfo.page = 1;
        // onResumeProcess();
         // getActivity().setTitle(R.string.app_name);
+        unbinder = ButterKnife.bind(this, getView());
+        //onResumeProcess();
         super.onResume();
     }
 
@@ -110,6 +112,7 @@ public class MainFragment extends MyFragment {
         super.onDestroyView();
         unbinder.unbind();
     }
+
 
 
 }
