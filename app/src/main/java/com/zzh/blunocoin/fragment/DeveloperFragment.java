@@ -143,6 +143,7 @@ public class DeveloperFragment extends MyFragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     serialSend("B");
+                    devSwitch4Bluebit2.setChecked(false);
                 }else{
                     serialSend("c");
                 }
@@ -154,6 +155,7 @@ public class DeveloperFragment extends MyFragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     serialSend("b");
+                    devSwitch3Bluebit1.setChecked(false);
                 }else{
                     serialSend("c");
                 }

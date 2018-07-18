@@ -7,14 +7,13 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.zzh.blunocoin.R;
 import com.zzh.blunocoin.bluno.data.Message;
 import com.zzh.blunocoin.data.Varinfo;
 import com.zzh.blunocoin.tool.MyFragment;
-import com.zzh.blunocoin.tool.StepView.MySportView;
+import com.zzh.blunocoin.tool.ScrollNumber.ScrollNumberView;
 import com.zzh.blunocoin.tool.StepView.XiaoMiSportView;
 
 import butterknife.BindView;
@@ -26,10 +25,25 @@ import butterknife.Unbinder;
 public class CoinFragment extends MyFragment {
     @BindView(R.id.coin_StepView)
     XiaoMiSportView coinStepView;
+    @BindView(R.id.coin_Scrollnum_1)
+    ScrollNumberView coinScrollnum1;
+    @BindView(R.id.coin_Scrollnum_5)
+    ScrollNumberView coinScrollnum5;
+    @BindView(R.id.coin_Scrollnum_10)
+    ScrollNumberView coinScrollnum10;
     private View view;
     private static Context context;
 
     private Unbinder mButterKnife;
+
+    Handler freshanim = new Handler();
+    Runnable freshanim_run = new Runnable() {
+        @Override
+        public void run() {
+            coinStepView.setIsNeedFresh(false);
+            Varinfo.onFreshing = false;
+        }
+    };
 
 
     @Override
@@ -60,10 +74,11 @@ public class CoinFragment extends MyFragment {
     }
 
     void content() {
-        coinStepView.setMaxNum(8000);
+        coinStepView.setMaxNum(1000);
 //        xiaoMiSportView.setCurrentNumAnim(4000);
         coinStepView.setCurrentNum(0);
         coinStepView.setIsNeedFresh(false);
+        Varinfo.onFreshing = false;
 
     }
 
@@ -103,19 +118,15 @@ public class CoinFragment extends MyFragment {
                 coinmode = false;
                 System.out.print(received);
                 testgson(received);
-
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        coinStepView.setIsNeedFresh(false);
-                    }
-                }, 1800);
+                freshanim.removeCallbacks(freshanim_run);
+                freshanim.postDelayed(freshanim_run, 1500);
 
             }
         } else if (theString.contains("%")) {
             onreceive = "";
             received0 = theString.substring(1, 1);
             coinStepView.setIsNeedFresh(true);
+            Varinfo.onFreshing = true;
             System.out.print(received0);
         }
 
@@ -149,6 +160,28 @@ public class CoinFragment extends MyFragment {
         int sum = C1 + C5 * 5 + C10 * 10;
 
         coinStepView.setCurrentNum(sum);
+
+
+        coinScrollnum1.setNumber(C1);
+        coinScrollnum5.setNumber(C5);
+        coinScrollnum10.setNumber(C10);
+
+
+        switch (mess.getIM()){
+            case 1:
+                coinScrollnum1.setNumber(C1-1);
+                coinScrollnum1.increment();
+                break;
+            case 2:
+                coinScrollnum5.setNumber(C5-1);
+                coinScrollnum5.increment();
+                break;
+            case 3:
+                coinScrollnum10.setNumber(C10-1);
+                coinScrollnum10.increment();
+                break;
+        }
+
         //Toast.makeText(this,mess.getC10()+mess.getC5()+mess.getC1()+"",Toast.LENGTH_LONG).show();
            /* Coin1.setText(mess.getC1() + "");
             Coin5.setText(mess.getC5() + "");

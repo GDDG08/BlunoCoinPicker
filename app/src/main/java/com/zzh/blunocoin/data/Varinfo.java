@@ -45,6 +45,8 @@ public class Varinfo
 
     public static boolean paused=false;
 
+    public static boolean onFreshing=false;
+
 
 	public static Bundle save2(Bundle b)
 	{

@@ -32,4 +32,11 @@
             <enum name="FILL" value="1"></enum>
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="ScrollNumberView">
+        <attr name="padding_start" format="dimension" />
+        <attr name="text_size" format="dimension" />
+        <attr name="number" format="integer" />
+        <attr name="duration" format="integer" />
+    </declare-styleable>
 </resources>
