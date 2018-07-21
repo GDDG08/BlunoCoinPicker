@@ -9,6 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.VideoView;
 
 import com.zzh.blunocoin.R;
 import com.zzh.blunocoin.data.Varinfo;
@@ -17,6 +18,7 @@ import com.zzh.blunocoin.tool.MyFragment;
 import org.limlee.hiframeanimationlib.FrameAnimationView;
 import org.limlee.hiframeanimationlib.FrameDrawable;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -50,6 +52,8 @@ public class MainFragment extends MyFragment {
         // getActivity().setTitle(R.string.app_name);
         //unbinder = ButterKnife.bind(this, getView());
         //onResumeProcess();
+
+       // onshowanima();
         super.onResume();
     }
 
@@ -95,6 +99,7 @@ public class MainFragment extends MyFragment {
         Varinfo.page_progress.setVisibility(View.GONE);
         //unbinder = ButterKnife.bind(context, view);
         mFrameAnimationView=(FrameAnimationView)view.findViewById(R.id.frame_animation);
+        Varinfo.mFrameAnimationView=(FrameAnimationView)view.findViewById(R.id.frame_animation);
         content();
         // MT.finish();
 
@@ -120,7 +125,11 @@ public class MainFragment extends MyFragment {
         return super.onOptionsItemSelected(item);
     }
 
-    void content() {/*
+    void content() {
+
+    }
+
+    public void onshowanima(){
         List<String> frameList = null;
         try {
             final String[] frames = context.getAssets().list(FRAME_NAME);
@@ -132,7 +141,7 @@ public class MainFragment extends MyFragment {
         }
         //按帧图片的序列号排序
         if (null != frameList) {
-            Collections.sort(frameList, new Comparator<String>() {
+            /*Collections.sort(frameList, new Comparator<String>() {
 
                 private final String MATCH_FRAME_NUM = String.format("(?<=%s_).*(?=.jpg)", FRAME_NAME);
                 private final Pattern p = Pattern.compile(MATCH_FRAME_NUM);
@@ -151,7 +160,7 @@ public class MainFragment extends MyFragment {
                     }
                     return 0;
                 }
-            });
+            });*/
             //添加序列帧
             List<FrameDrawable> frameDrawables = new ArrayList<>();
             for (String framePath : frameList) {
@@ -173,16 +182,18 @@ public class MainFragment extends MyFragment {
                 }
             });
             mFrameAnimationView.start(); //开始播放
-        }*/
-
+        }
+        /*VideoView videoView=(VideoView)view.findViewById(R.id.main_videoView);
+        videoView.setVideoPath(new File("/storage/emulated/0/vysor/untitled.30.mp4").getAbsolutePath());
+        videoView.start();*/
     }
 
 
     @Override
     public void onDestroyView() {
-        super.onDestroyView();/*
+        super.onDestroyView();
         mFrameAnimationView.stop(); //停止播放
-        mFrameAnimationView.setOnFrameListener(null); //移除监听器*/
+        mFrameAnimationView.setOnFrameListener(null); //移除监听器
         //unbinder.unbind();
     }
 

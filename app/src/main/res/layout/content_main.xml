@@ -28,9 +28,9 @@
 		android:textSize="16sp"
 		android:textStyle="bold" />
 
-	<org.limlee.hiframeanimationlib.FrameAnimationView
-		android:id="@+id/frame_animation"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"/>
+    <org.limlee.hiframeanimationlib.FrameAnimationView
+        android:id="@+id/frame_animation"
+        android:layout_width="match_parent"
+        android:layout_height="400dp" />
 </LinearLayout>
 
