@@ -29,8 +29,6 @@ import com.zzh.blunocoin.fragment.DeveloperFragment;
 import com.zzh.blunocoin.fragment.LightFragment;
 import com.zzh.blunocoin.fragment.MainFragment;
 
-import org.limlee.hiframeanimationlib.FrameAnimationView;
-import org.limlee.hiframeanimationlib.FrameDrawable;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -459,67 +457,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    private static final String FRAME_NAME = "coinaer";
-    FrameAnimationView mFrameAnimationView;
-    @Override
-    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        mFrameAnimationView=Varinfo.mFrameAnimationView;
-        List<String> frameList = null;
-        try {
-            final String[] frames = getAssets().list(FRAME_NAME);
-            if (null != frames) {
-                frameList = Arrays.asList(frames);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        //按帧图片的序列号排序
-        if (null != frameList) {
-            Collections.sort(frameList, new Comparator<String>() {
-
-                private final String MATCH_FRAME_NUM = String.format("(?<=%s_).*(?=.jpg)", FRAME_NAME);
-                private final Pattern p = Pattern.compile(MATCH_FRAME_NUM);
-
-                @Override
-                public int compare(String lhs, String rhs) {
-                    try {
-                        final Matcher lhsMatcher = p.matcher(lhs);
-                        final Matcher rhsMatcher = p.matcher(rhs);
-                        if (lhsMatcher.find()
-                                && rhsMatcher.find()) {
-                            return Integer.valueOf(lhsMatcher.group()) - Integer.valueOf(rhsMatcher.group());
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    return 0;
-                }
-            });
-            //添加序列帧
-            List<FrameDrawable> frameDrawables = new ArrayList<>();
-            for (String framePath : frameList) {
-                FrameDrawable frameDrawable = new FrameDrawable(FRAME_NAME + "/" + framePath, 5);
-                frameDrawables.add(frameDrawable);
-            }
-
-            mFrameAnimationView.setOneShot(false); //循环播放帧动画
-            mFrameAnimationView.addFrameDrawable(frameDrawables); //添加序列帧
-            mFrameAnimationView.setOnFrameListener(new FrameAnimationView.OnFrameListener() { //添加监听器
-                @Override
-                public void onFrameStart() {
-                    //Log.d(TAG, "帧动画播放开始！");
-                }
-
-                @Override
-                public void onFrameEnd() {
-                    //Log.d(TAG, "帧动画播放结束！");
-                }
-            });
-            mFrameAnimationView.start(); //开始播放
-        }
-
-    }
 
 
 }

@@ -1,6 +1,9 @@
 package com.zzh.blunocoin.fragment;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -9,41 +12,20 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.VideoView;
 
 import com.zzh.blunocoin.R;
 import com.zzh.blunocoin.data.Varinfo;
 import com.zzh.blunocoin.tool.MyFragment;
 
-import org.limlee.hiframeanimationlib.FrameAnimationView;
-import org.limlee.hiframeanimationlib.FrameDrawable;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-
 public class MainFragment extends MyFragment {
 
-    //    @BindView(R.id.main666)
-//    TextView main666;
     //Unbinder unbinder;
-    //@BindView(R.id.frame_animation)
-    FrameAnimationView mFrameAnimationView;
     private View view;
 
     private Context context;
 
-    private static final String FRAME_NAME = "coinaer";
 
     @Override
     public void onResume() {
@@ -53,17 +35,16 @@ public class MainFragment extends MyFragment {
         //unbinder = ButterKnife.bind(this, getView());
         //onResumeProcess();
 
-       // onshowanima();
+        //onshowanima();
         super.onResume();
     }
 
-//    @Override
-//    public void onPause() {
-//        super.onPause();
-//        onPauseProcess();
-//        //if(!Varinfo.hasservice) finish();
-//    }
-//
+    @Override
+    public void onPause() {
+        super.onPause();
+        //myVideoView.stopPlayback();
+    }
+
 //    @Override
 //    public void onStop() {
 //        super.onStop();
@@ -98,8 +79,6 @@ public class MainFragment extends MyFragment {
         Varinfo.page_container.setVisibility(View.VISIBLE);
         Varinfo.page_progress.setVisibility(View.GONE);
         //unbinder = ButterKnife.bind(context, view);
-        mFrameAnimationView=(FrameAnimationView)view.findViewById(R.id.frame_animation);
-        Varinfo.mFrameAnimationView=(FrameAnimationView)view.findViewById(R.id.frame_animation);
         content();
         // MT.finish();
 
@@ -127,73 +106,61 @@ public class MainFragment extends MyFragment {
 
     void content() {
 
+        if (!Varinfo.vid_showed) {
+            System.out.println("showed=False");
+            onshowanima();
+        }else{
+            myVideoView = view.findViewById(R.id.main_videoView);
+            myImageView = view .findViewById(R.id.main_imageView);
+            myImageView.setVisibility(View.VISIBLE);
+            myVideoView.setVisibility(View.GONE);
+        }
     }
 
-    public void onshowanima(){
-        List<String> frameList = null;
-        try {
-            final String[] frames = context.getAssets().list(FRAME_NAME);
-            if (null != frames) {
-                frameList = Arrays.asList(frames);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        //按帧图片的序列号排序
-        if (null != frameList) {
-            /*Collections.sort(frameList, new Comparator<String>() {
+    VideoView myVideoView;
+    ImageView myImageView;
 
-                private final String MATCH_FRAME_NUM = String.format("(?<=%s_).*(?=.jpg)", FRAME_NAME);
-                private final Pattern p = Pattern.compile(MATCH_FRAME_NUM);
+    public void onshowanima() {
 
+        myVideoView = view.findViewById(R.id.main_videoView);
+        myImageView = view .findViewById(R.id.main_imageView);
+       /* videoView.setVideoPath(new File("/storage/emulated/0/vysor/main2.mp44").getAbsolutePath());
+        videoView.start();*/
+
+        //final String videoPath = new File("/storage/emulated/0/vysor/main2.mp44").getAbsolutePath();
+        final String videoPath = Uri.parse("android.resource://"+context.getPackageName()+"/" + R.raw.main).toString();
+        //播放
+         myVideoView.setVideoPath(videoPath);
+        myVideoView.start();
+        Varinfo.vid_showed=true;
+        myVideoView.setOnPreparedListener(mp -> {
+            //mp.start();
+            mp.setLooping(false);
+            mp.setOnInfoListener(new MediaPlayer.OnInfoListener() {
                 @Override
-                public int compare(String lhs, String rhs) {
-                    try {
-                        final Matcher lhsMatcher = p.matcher(lhs);
-                        final Matcher rhsMatcher = p.matcher(rhs);
-                        if (lhsMatcher.find()
-                                && rhsMatcher.find()) {
-                            return Integer.valueOf(lhsMatcher.group()) - Integer.valueOf(rhsMatcher.group());
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    return 0;
-                }
-            });*/
-            //添加序列帧
-            List<FrameDrawable> frameDrawables = new ArrayList<>();
-            for (String framePath : frameList) {
-                FrameDrawable frameDrawable = new FrameDrawable(FRAME_NAME + "/" + framePath, 5);
-                frameDrawables.add(frameDrawable);
-            }
-
-            mFrameAnimationView.setOneShot(false); //循环播放帧动画
-            mFrameAnimationView.addFrameDrawable(frameDrawables); //添加序列帧
-            mFrameAnimationView.setOnFrameListener(new FrameAnimationView.OnFrameListener() { //添加监听器
-                @Override
-                public void onFrameStart() {
-                    //Log.d(TAG, "帧动画播放开始！");
-                }
-
-                @Override
-                public void onFrameEnd() {
-                    //Log.d(TAG, "帧动画播放结束！");
+                public boolean onInfo(MediaPlayer mp, int what, int extra) {
+                    if (what == MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START)
+                        myVideoView.setBackgroundColor(Color.TRANSPARENT);
+                    return true;
                 }
             });
-            mFrameAnimationView.start(); //开始播放
-        }
-        /*VideoView videoView=(VideoView)view.findViewById(R.id.main_videoView);
-        videoView.setVideoPath(new File("/storage/emulated/0/vysor/untitled.30.mp4").getAbsolutePath());
-        videoView.start();*/
+        });
+        myVideoView.setOnCompletionListener(mp -> {
+            // myVideoView.setVideoPath(videoPath);
+            //myVideoView.start();
+            myVideoView.stopPlayback();
+//            myImageView.setVisibility(View.VISIBLE);
+//            myVideoView.setVisibility(View.GONE);
+
+        });
+
     }
 
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        mFrameAnimationView.stop(); //停止播放
-        mFrameAnimationView.setOnFrameListener(null); //移除监听器
+        myVideoView.stopPlayback();
         //unbinder.unbind();
     }
 

@@ -10,7 +10,6 @@ import com.zzh.blunocoin.bluno.BluetoothLeService;
 import com.zzh.blunocoin.tool.*;
 import com.zzh.blunocoin.*;
 
-import org.limlee.hiframeanimationlib.FrameAnimationView;
 
 public class Varinfo
 {
@@ -64,7 +63,8 @@ public class Varinfo
     public static int C5=0;
     public static int C10=0;
 
-    public static FrameAnimationView mFrameAnimationView;
+    //首页动画
+	public static boolean vid_showed=false;
 
 
     public static Bundle save2(Bundle b)
