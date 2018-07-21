@@ -1,1 +1,1 @@
-include ':app', ':RippleLibrary'
+include ':app', ':RippleLibrary', ':hiframeanimationlib'

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:focusable="true"
+	android:focusableInTouchMode="true"
+	tools:context=".MainActivity">
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_below="@+id/imageView_animate"
+		android:layout_marginTop="0dp">
+
+		<com.larswerkman.holocolorpicker.ColorPicker
+			android:id="@+id/Light_picker"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:layout_centerInParent="false"
+			android:layout_gravity="center"
+			android:layout_marginTop="30dp" />
+
+		<Switch
+			android:id="@+id/light_switch2_light2"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/Light_picker"
+			android:layout_marginTop="20dp"
+			android:layout_weight="1"
+			android:paddingLeft="15dp"
+			android:paddingRight="15dp"
+			android:text="BlueBit 柔和呼吸灯" />
+		<Switch
+			android:id="@+id/light_switch3_bluebit1"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/light_switch2_light2"
+			android:layout_marginTop="20dp"
+			android:layout_weight="1"
+			android:paddingLeft="15dp"
+			android:paddingRight="15dp"
+			android:text="BlueBit 柔和呼吸灯" />
+
+		<Switch
+			android:id="@+id/light_switch4_bluebit2"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/light_switch3_bluebit1"
+			android:layout_marginTop="20dp"
+			android:layout_weight="1"
+			android:paddingLeft="15dp"
+			android:paddingRight="15dp"
+			android:text="BlueBit 色彩轮回RGB" />
+	</RelativeLayout>
+
+</RelativeLayout>
+
+

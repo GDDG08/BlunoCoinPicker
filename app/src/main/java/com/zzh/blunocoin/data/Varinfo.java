@@ -47,6 +47,15 @@ public class Varinfo
 
     public static boolean onFreshing=false;
 
+    /*
+    灯光
+    2单色小板
+    3Bluebit模式一
+    4Bluebit模式二
+     */
+    public static boolean Light2=false;
+	public static boolean Light3=false;
+	public static boolean Light4=false;
 
 	public static Bundle save2(Bundle b)
 	{

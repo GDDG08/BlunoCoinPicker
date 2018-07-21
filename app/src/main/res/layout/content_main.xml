@@ -5,63 +5,32 @@
 	android:layout_height="match_parent"
 	android:orientation="vertical">
 
-	<LinearLayout
-		android:id="@+id/ll_banner_main"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:gravity="center_horizontal"
-		android:visibility="gone">
-
-	</LinearLayout>
 
 	<TextView
-		android:text="亲爱的同学们:"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:textSize="18sp"
-		android:id="@+id/contentmainTextView1"
-		android:layout_marginTop="10dp"
-		android:textStyle="bold"/>
-
-	<TextView
-		android:layout_height="wrap_content"
-		android:layout_width="wrap_content"
-		android:text="欢迎你使用坏分数PLUS！"
-		android:layout_marginTop="10dp"
-		android:id="@+id/contentmainTextView2"/>
-
-	<TextView
-		android:layout_height="wrap_content"
+		android:id="@+id/textView2"
 		android:layout_width="match_parent"
-		android:layout_marginTop="5dp"
-		android:id="@+id/mainInfoTextView"/>
-
-	<TextView
 		android:layout_height="wrap_content"
-		android:layout_width="wrap_content"
-		android:text="停更声明:"
-		android:textStyle="bold"
+		android:layout_marginLeft="10dp"
 		android:layout_marginTop="20dp"
+		android:gravity="center"
+		android:text="智能硬币分拣盒"
 		android:textSize="20sp"
-		android:id="@+id/contentmainTextView7"
-		android:visibility="gone"/>
+		android:textStyle="bold" />
 
 	<TextView
-		android:layout_height="wrap_content"
+		android:id="@+id/textView3"
 		android:layout_width="match_parent"
-		android:layout_marginTop="18dp"
-		android:id="@+id/mainNewTextView"
-		android:text="000"
-		android:visibility="gone"/>
-
-	<TextView
 		android:layout_height="wrap_content"
+		android:layout_marginLeft="10dp"
+		android:layout_marginTop="10dp"
+		android:gravity="center"
+		android:text="出品·衡中3D打印社"
+		android:textSize="16sp"
+		android:textStyle="bold" />
+
+	<org.limlee.hiframeanimationlib.FrameAnimationView
+		android:id="@+id/frame_animation"
 		android:layout_width="match_parent"
-		android:layout_marginTop="18dp"
-		android:id="@+id/main666"
-		android:text="111"
-		android:gravity="center_horizontal"/>
-
-
+		android:layout_height="match_parent"/>
 </LinearLayout>
 

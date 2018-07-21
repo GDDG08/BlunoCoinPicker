@@ -24,6 +24,7 @@ import com.zzh.blunocoin.data.Varinfo;
 import com.zzh.blunocoin.fragment.CoinFragment;
 import com.zzh.blunocoin.fragment.ConnectFragment;
 import com.zzh.blunocoin.fragment.DeveloperFragment;
+import com.zzh.blunocoin.fragment.LightFragment;
 import com.zzh.blunocoin.fragment.MainFragment;
 
 import java.util.ArrayList;
@@ -261,7 +262,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             if (type != 4) {
                 if (checklogin()) {
-
+                    Page(new LightFragment());
                 }
             }
         } else if (id == R.id.nav_5_game) {

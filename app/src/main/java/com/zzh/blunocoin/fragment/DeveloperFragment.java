@@ -114,49 +114,49 @@ public class DeveloperFragment extends MyFragment {
                 }
         );
 
-        devSwitch1Light.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+        devSwitch1Light.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     devSwitch2LightSingle.setChecked(false);
                     serialSend("L");
-                }else{
+                } else {
                     serialSend("lll");
                 }
             }
         });
 
-        devSwitch2LightSingle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+        devSwitch2LightSingle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     devSwitch1Light.setChecked(false);
                     serialSend("F");
-                }else{
+                } else {
                     serialSend("lll");
                 }
             }
         });
 
-        devSwitch3Bluebit1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+        devSwitch3Bluebit1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     serialSend("B");
                     devSwitch4Bluebit2.setChecked(false);
-                }else{
+                } else {
                     serialSend("c");
                 }
             }
         });
 
-        devSwitch4Bluebit2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+        devSwitch4Bluebit2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     serialSend("b");
                     devSwitch3Bluebit1.setChecked(false);
-                }else{
+                } else {
                     serialSend("c");
                 }
             }
@@ -214,7 +214,7 @@ public class DeveloperFragment extends MyFragment {
     private String onreceive = "";
     private String received = "";
 
-    private Boolean coinmode=false;
+    private Boolean coinmode = false;
 
     @Override
     public void onSerialReceived(String theString) {                            //Once connection data received, this function will be called
@@ -223,22 +223,22 @@ public class DeveloperFragment extends MyFragment {
         //The Serial data from the BLUNO may be sub-packaged, so using a buffer to hold the String is a good choice.
         ((ScrollView) serialReceivedText.getParent()).fullScroll(View.FOCUS_DOWN);
         if (theString.contains("$")) {
-            coinmode=true;
-            if(!theString.substring(0,1).equals("$")){
-                theString=theString.split("$")[1];//接受混乱没有容错
+            coinmode = true;
+            if (!theString.substring(0, 1).equals("$")) {
+                theString = theString.split("$")[1];//接受混乱没有容错
             }
             onreceive += theString;
-        }else if (coinmode) {
-                onreceive += theString;
-                if (theString.contains("@")) {
-                    received = onreceive.substring(1, onreceive.length() - 3);
-                    //received = onreceive.deleteCharAt(buf.length()-1);
-                    onreceive = "";
-                    coinmode = false;
-                   // Toast.makeText(context, received, Toast.LENGTH_LONG).show();
-                    System.out.print(received);
-                    testgson(received);
-                }
+        } else if (coinmode) {
+            onreceive += theString;
+            if (theString.contains("@")) {
+                received = onreceive.substring(1, onreceive.length() - 3);
+                //received = onreceive.deleteCharAt(buf.length()-1);
+                onreceive = "";
+                coinmode = false;
+                // Toast.makeText(context, received, Toast.LENGTH_LONG).show();
+                System.out.print(received);
+                testgson(received);
+            }
         }
 
     }
@@ -253,7 +253,6 @@ public class DeveloperFragment extends MyFragment {
         Coin10.setText(mess.getC10() + "");
 
     }
-
 
 
     @OnClick(R.id.dev_button_test)

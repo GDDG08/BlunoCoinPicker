@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.skyfishjy.library.RippleBackground;
 import com.zzh.blunocoin.R;
 import com.zzh.blunocoin.data.Varinfo;
+import com.zzh.blunocoin.tool.Msg;
 import com.zzh.blunocoin.tool.MyFragment;
 
 import butterknife.BindView;
@@ -25,8 +26,7 @@ import butterknife.Unbinder;
 
 public class ConnectFragment extends MyFragment {
 
-    @BindView(R.id.buttonScan)
-    Button buttonScan;
+
     @BindView(R.id.imageView_animate)
     ImageView imageViewAnimate;
     @BindView(R.id.centerImage)
@@ -67,32 +67,6 @@ public class ConnectFragment extends MyFragment {
         return view;
     }
 
-    @OnClick(R.id.buttonScan)
-    void finishA(View view) {
-        //buttonScanOnClickProcess();
-
-        if (Varinfo.connected) {
-
-           buttonScanOnClickProcess();
-            //Varinfo.connected=false;
-        } else {
-
-            String mDeviceName = "GDDG Bluno";
-            String mDeviceAddress = "88:33:14:DC:6F:F8";
-
-            if (mBluetoothLeService.connect(mDeviceAddress)) {
-//                    Log.d(TAG, "Connect request success");
-                mConnectionState = connectionStateEnum.isConnecting;
-                onConectionStateChange(mConnectionState);
-                mHandler.postDelayed(mConnectingOverTimeRunnable, 10000);
-            } else {
-//                    Log.d(TAG, "Connect request fail");
-                mConnectionState = connectionStateEnum.isToScan;
-                onConectionStateChange(mConnectionState);
-            }                                    //Alert Dialog for selecting the BLE device
-
-        }
-    }
 
     @OnClick(R.id.imageView_animate)
     public void onViewClicked() {
@@ -116,24 +90,25 @@ public class ConnectFragment extends MyFragment {
     public void onConectionStateChange(connectionStateEnum theConnectionState) {//Once connection state changes, this function will be called
         switch (theConnectionState) {                                            //Four connection state
             case isConnected:
-                buttonScan.setText("Connected");
+               // buttonScan.setText("Connected");
                 Varinfo.connected = true;
                 content.stopRippleAnimation();
+                Msg.Snack(view,"Bluebit连接成功！");
                 break;
             case isConnecting:
-                buttonScan.setText("Connecting");
+               // buttonScan.setText("Connecting");
                 content.startRippleAnimation();
                 break;
             case isToScan:
-                buttonScan.setText("Scan");
+               // buttonScan.setText("Scan");
                 Varinfo.connected = false;
                 content.stopRippleAnimation();
                 break;
             case isScanning:
-                buttonScan.setText("Scanning");
+               // buttonScan.setText("Scanning");
                 break;
             case isDisconnecting:
-                buttonScan.setText("isDisconnecting");
+              //  buttonScan.setText("isDisconnecting");
                 Varinfo.connected = false;
                 break;
             default:
@@ -143,14 +118,35 @@ public class ConnectFragment extends MyFragment {
 
     @OnClick({R.id.centerImage, R.id.content})
     public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.centerImage:
-                content.startRippleAnimation();
+        //switch (view.getId()) {
+            /*case R.id.centerImage:
+                //content.startRippleAnimation();
                 break;
-            case R.id.content:
-                content.startRippleAnimation();
-                break;
-        }
+            case R.id.content:*/
+
+                if (Varinfo.connected) {
+
+                    buttonScanOnClickProcess();
+                    //Varinfo.connected=false;
+                } else {
+
+                    String mDeviceName = "GDDG Bluno";
+                    String mDeviceAddress = "88:33:14:DC:6F:F8";
+
+                    if (mBluetoothLeService.connect(mDeviceAddress)) {
+//                    Log.d(TAG, "Connect request success");
+                        mConnectionState = connectionStateEnum.isConnecting;
+                        onConectionStateChange(mConnectionState);
+                        mHandler.postDelayed(mConnectingOverTimeRunnable, 10000);
+                    } else {
+//                    Log.d(TAG, "Connect request fail");
+                        mConnectionState = connectionStateEnum.isToScan;
+                        onConectionStateChange(mConnectionState);
+                    }                                    //Alert Dialog for selecting the BLE device
+
+                }
+//                break;
+//        }
     }
 
 
