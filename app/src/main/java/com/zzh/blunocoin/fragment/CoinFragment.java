@@ -76,9 +76,13 @@ public class CoinFragment extends MyFragment {
     void content() {
         coinStepView.setMaxNum(1000);
 //        xiaoMiSportView.setCurrentNumAnim(4000);
-        coinStepView.setCurrentNum(0);
+        coinStepView.setCurrentNum(Varinfo.C1 + Varinfo.C5 * 5 + Varinfo.C10 * 10);
         coinStepView.setIsNeedFresh(false);
         Varinfo.onFreshing = false;
+
+        coinScrollnum1.setNumber(Varinfo.C1);
+        coinScrollnum5.setNumber(Varinfo.C5);
+        coinScrollnum10.setNumber(Varinfo.C10);
 
     }
 
@@ -154,30 +158,30 @@ public class CoinFragment extends MyFragment {
         Gson gson = new Gson();
         Message mess = gson.fromJson(message, Message.class);
 
-        int C1 = mess.getC1();
-        int C5 = mess.getC5();
-        int C10 = mess.getC10();
-        int sum = C1 + C5 * 5 + C10 * 10;
+        Varinfo.C1 = mess.getC1();
+        Varinfo.C5 = mess.getC5();
+        Varinfo.C10 = mess.getC10();
+        int sum = Varinfo.C1 + Varinfo.C5 * 5 + Varinfo.C10 * 10;
 
         coinStepView.setCurrentNum(sum);
 
 
-        coinScrollnum1.setNumber(C1);
-        coinScrollnum5.setNumber(C5);
-        coinScrollnum10.setNumber(C10);
+        coinScrollnum1.setNumber(Varinfo.C1);
+        coinScrollnum5.setNumber(Varinfo.C5);
+        coinScrollnum10.setNumber(Varinfo.C10);
 
 
         switch (mess.getIM()){
             case 1:
-                coinScrollnum1.setNumber(C1-1);
+                coinScrollnum1.setNumber(Varinfo.C1-1);
                 coinScrollnum1.increment();
                 break;
             case 2:
-                coinScrollnum5.setNumber(C5-1);
+                coinScrollnum5.setNumber(Varinfo.C5-1);
                 coinScrollnum5.increment();
                 break;
             case 3:
-                coinScrollnum10.setNumber(C10-1);
+                coinScrollnum10.setNumber(Varinfo.C10-1);
                 coinScrollnum10.increment();
                 break;
         }

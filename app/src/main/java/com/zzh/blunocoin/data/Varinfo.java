@@ -57,7 +57,13 @@ public class Varinfo
 	public static boolean Light3=false;
 	public static boolean Light4=false;
 
-	public static Bundle save2(Bundle b)
+	//硬币
+    public static int C1=0;
+    public static int C5=0;
+    public static int C10=0;
+
+
+    public static Bundle save2(Bundle b)
 	{
 		Bundle bb=b;
 		nowfrag_i = Utils.Frag2int(nowfrag);
