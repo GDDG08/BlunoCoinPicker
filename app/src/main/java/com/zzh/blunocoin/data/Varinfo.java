@@ -55,7 +55,7 @@ public class Varinfo
     4Bluebit模式二
      */
     public static boolean Light2=false;
-	public static boolean Light3=false;
+	public static boolean Light3=true;
 	public static boolean Light4=false;
 
 	//硬币

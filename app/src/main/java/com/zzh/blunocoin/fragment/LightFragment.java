@@ -206,7 +206,7 @@ public class LightFragment extends MyFragment {
             case 3:
                 if (Varinfo.Light3) {
                     Varinfo.Light3 = false;
-
+                    serialSend("c");
                     lightSwitch3Bluebit1.setChecked(false);
                 }
             case 4:
