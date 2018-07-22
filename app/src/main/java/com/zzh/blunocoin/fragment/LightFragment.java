@@ -149,6 +149,23 @@ public class LightFragment extends MyFragment {
                 }
             }
         });
+
+        if(Varinfo.Light2){
+            lightSwitch2Light2.setChecked(true);
+        }else {
+            lightSwitch2Light2.setChecked(false);
+        }
+        if(Varinfo.Light3){
+            lightSwitch3Bluebit1.setChecked(true);
+        }else {
+            lightSwitch3Bluebit1.setChecked(false);
+        }
+        if(Varinfo.Light4){
+            lightSwitch4Bluebit2.setChecked(true);
+        }else {
+            lightSwitch4Bluebit2.setChecked(false);
+        }
+
     }
 
     private void lighton(int light) {

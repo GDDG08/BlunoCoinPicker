@@ -59,9 +59,9 @@ public class Varinfo
 	public static boolean Light4=false;
 
 	//硬币
-    public static int C1=0;
-    public static int C5=0;
     public static int C10=0;
+    public static int C5=0;
+    public static int C1=0;
 
     //首页动画
 	public static boolean vid_showed=false;

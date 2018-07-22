@@ -12,7 +12,6 @@
 		android:id="@+id/status"
 		android:layout_width="match_parent"
 		android:layout_height="48dp"
-		app:dismissOnComplete="true"
 		app:complete="@layout/status_connected"
 		app:error="@layout/status_noconnect"
 		app:loading="@layout/status_connecting"/>
@@ -27,7 +26,7 @@
 			xmlns:app="http://schemas.android.com/apk/res-auto"
 			android:id="@+id/content"
 			android:layout_width="match_parent"
-			android:layout_height="600dp"
+			android:layout_height="500dp"
 			app:rb_color="#0099CC"
 			app:rb_duration="3000"
 			app:rb_radius="32dp"

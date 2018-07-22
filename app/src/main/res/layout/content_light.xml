@@ -32,7 +32,7 @@
 			android:layout_weight="1"
 			android:paddingLeft="15dp"
 			android:paddingRight="15dp"
-			android:text="BlueBit 柔和呼吸灯" />
+			android:text="Bluebit 流水循环RGB" />
 		<Switch
 			android:id="@+id/light_switch3_bluebit1"
 			android:layout_width="match_parent"

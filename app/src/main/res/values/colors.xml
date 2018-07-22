@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#00846F</color>
     <color name="colorAccent">#FBD627</color>
     <color name="color_radar">#009685</color>
-    <color name="color_radar_bak">#37474F</color>
+    <color name="color_radar_bak">#242424</color>
     <color name="color_bar_pre">#009688</color>
     <color name="color_bar_now">#8BC34A</color>
     <color name="color_radar_text">#0097A7</color>

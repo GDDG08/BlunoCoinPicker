@@ -16,7 +16,10 @@
 		android:layout_marginRight="10dp"
 		android:layout_marginTop="20dp"
 		android:gravity="center"
+		android:shadowColor="@color/color_bg_success"
+		android:shadowRadius="5"
 		android:text="智能硬币分拣盒"
+		android:textColor="@color/color_radar_bak"
 		android:textSize="20sp"
 		android:textStyle="bold" />
 
@@ -28,6 +31,8 @@
 		android:layout_marginRight="10dp"
 		android:layout_marginTop="10dp"
 		android:gravity="center"
+		android:shadowColor="#00bcd4"
+		android:shadowRadius="3"
 		android:text="出品·衡中3D打印社"
 		android:textSize="16sp"
 		android:textStyle="bold" />
