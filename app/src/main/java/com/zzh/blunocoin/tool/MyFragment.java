@@ -150,12 +150,12 @@ public class MyFragment extends BlunoLibrary
 
     @Override
     public void onStart() {
-        if (Varinfo.paused){
+//        if (Varinfo.paused){
             mBluetoothAdapter=Varinfo.mBluetoothAdapter;
             mBluetoothLeService=Varinfo.mBluetoothLeService;
             //onResumeProcess();
             System.out.println("Paused恢复");
-        }
+//        }
         IntentFilter filter = new IntentFilter(mBluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED);
         getActivity().registerReceiver(mGattUpdateReceiver, filter);
         filter = new IntentFilter(mBluetoothLeService.ACTION_GATT_CONNECTED);

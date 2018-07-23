@@ -2,6 +2,7 @@ package com.zzh.blunocoin.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +40,7 @@ public class LightFragment extends MyFragment {
     @Override
     public void onResume() {
         Varinfo.page = 4;
+        serialSend("v");
         super.onResume();
     }
 
@@ -59,7 +61,11 @@ public class LightFragment extends MyFragment {
         mButterKnife = ButterKnife.bind(this, view);
         content();
         onCreateProcess(context);                                                        //onCreate Process by BlunoLibrary
-        serialBegin(115200);
+//        serialBegin(115200);
+        new Handler().postDelayed(() -> {
+            serialSend("v");
+        },500);
+
         return view;
     }
 
@@ -150,7 +156,7 @@ public class LightFragment extends MyFragment {
             }
         });
 
-        if(Varinfo.Light2){
+        /*if(Varinfo.Light2){
             lightSwitch2Light2.setChecked(true);
         }else {
             lightSwitch2Light2.setChecked(false);
@@ -164,7 +170,7 @@ public class LightFragment extends MyFragment {
             lightSwitch4Bluebit2.setChecked(true);
         }else {
             lightSwitch4Bluebit2.setChecked(false);
-        }
+        }*/
 
     }
 
@@ -226,5 +232,41 @@ public class LightFragment extends MyFragment {
         mButterKnife.unbind();
     }
 
+    @Override
+    public void onSerialReceived(String theString) {
+        if (theString.contains("[")) {
+            String re = theString.substring(1, 4);
+            if (re.substring(0, 1).equals("1")) {
+                Varinfo.Light2 = true;
+            } else {
+                Varinfo.Light2 = false;
+            }
+            if (re.substring(1, 2).equals("1")) {
+                Varinfo.Light3 = true;
+            } else {
+                Varinfo.Light3 = false;
+            }
+            if (re.substring(2, 3).equals("1")) {
+                Varinfo.Light4 = true;
+            } else {
+                Varinfo.Light4 = false;
+            }
 
+            if (Varinfo.Light2) {
+                lightSwitch2Light2.setChecked(true);
+            } else {
+                lightSwitch2Light2.setChecked(false);
+            }
+            if (Varinfo.Light3) {
+                lightSwitch3Bluebit1.setChecked(true);
+            } else {
+                lightSwitch3Bluebit1.setChecked(false);
+            }
+            if (Varinfo.Light4) {
+                lightSwitch4Bluebit2.setChecked(true);
+            } else {
+                lightSwitch4Bluebit2.setChecked(false);
+            }
+        }
+    }
 }

@@ -49,6 +49,7 @@ public class CoinFragment extends MyFragment {
     @Override
     public void onResume() {
         Varinfo.page = 3;
+        serialSend("V");
         super.onResume();
     }
 
@@ -56,6 +57,7 @@ public class CoinFragment extends MyFragment {
     public void onHiddenChanged(boolean hidden) {
         if (!hidden) {
             Varinfo.page = 3;
+
         }
         super.onHiddenChanged(hidden);
     }
@@ -69,7 +71,10 @@ public class CoinFragment extends MyFragment {
         mButterKnife = ButterKnife.bind(this, view);
         content();
         onCreateProcess(context);                                                        //onCreate Process by BlunoLibrary
-        serialBegin(115200);
+//        serialBegin(115200);
+        new Handler().postDelayed(() -> {
+            serialSend("V");
+        },500);
         return view;
     }
 
@@ -83,6 +88,7 @@ public class CoinFragment extends MyFragment {
         coinScrollnum1.setNumber(Varinfo.C1);
         coinScrollnum5.setNumber(Varinfo.C5);
         coinScrollnum10.setNumber(Varinfo.C10);
+
 
     }
 
@@ -133,6 +139,7 @@ public class CoinFragment extends MyFragment {
             Varinfo.onFreshing = true;
             System.out.print(received0);
         }
+
 
 
 
