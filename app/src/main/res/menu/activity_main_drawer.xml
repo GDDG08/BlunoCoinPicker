@@ -19,11 +19,11 @@
             android:icon="@drawable/icon_analysis"
             android:title="@string/nav_light"
 			android:textColor="#FF1744"/>
-        <item
+        <!--<item
             android:id="@+id/nav_5_game"
             android:icon="@drawable/icon_paper"
             android:title="@string/nav_game"
-			android:textColor="#FF1744"/>
+			android:textColor="#FF1744"/>-->
     </group>
  
     <item android:title="@string/nav_dev">

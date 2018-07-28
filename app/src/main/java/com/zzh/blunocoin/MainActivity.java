@@ -275,13 +275,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     Page(new LightFragment());
                 }
             }
-        } else if (id == R.id.nav_5_game) {
+        } /*else if (id == R.id.nav_5_game) {
             if (type != 5) {
                 if (checklogin()) {
 
                 }
             }
-        } else if (id == R.id.nav_debug) {
+        }*/ else if (id == R.id.nav_debug) {
             if (type != 6) {
                 if (checklogin()) {
                     Page(new DeveloperFragment());
