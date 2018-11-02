@@ -8,8 +8,8 @@ android {
         applicationId "com.zzh.blunocoin"
         minSdkVersion 23
         targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
+        versionCode 18102622
+        versionName "2.1"
 
         javaCompileOptions {
             // 显式声明支持注解

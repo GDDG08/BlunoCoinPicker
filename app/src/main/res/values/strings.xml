@@ -7,7 +7,7 @@
     <string name="action_settings">Settings</string>
 
 
-    <string name="drawer_notconnected">设备未连接</string>
+    <string name="drawer_notconnected">设备未连接,进入演示模式！</string>
 
     <!-- Bluno DFrobot Demo START -->
     <string name="ble_not_supported">BLE is not supported</string>
@@ -37,7 +37,7 @@
     <string name="nav_about">关于</string>
     <string name="nav_dev">开发者设置</string>
     <string name="nav_debug">设备调试</string>
-    <string name="nav_license">免责声明</string>
+    <string name="nav_license">产品介绍</string>
     <string name="nav_help">使用帮助</string>
     <string name="nav_joingroup">加入衡中3D打印社</string>
 

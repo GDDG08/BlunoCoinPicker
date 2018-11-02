@@ -3,6 +3,13 @@ package com.zzh.blunocoin.bluno.data;
 /**
  * Created on 2018/7/9-16-58.
  */
+/**
+ * @Project: ${PROJECT_NAME}
+ * @Package: ${PACKAGE_NAME}
+ * @FileName:
+ * Created on ${DATE}-${HOUR}-${MINUTE}.
+ */
+
 public class Message {
 
     private int IM;

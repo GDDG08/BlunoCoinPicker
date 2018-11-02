@@ -290,35 +290,44 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_help) {
             //帮助
             //web("BZ");
-
+            web("BL");
 
         } else if (id == R.id.nav_license) {
             //免责
             //web("MZ");
+            web("BL");
         } else if (id == R.id.nav_joingroup) {
-            Intent intent = new Intent();
-            intent.setData(Uri.parse("mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26k%3D" + "vGFOdRd33MWoCnefFhpoJD4gPmg7O-kt"));
-            // 此Flag可根据具体产品需要自定义，如设置，则在加群界面按返回，返回手Q主界面，不设置，按返回会返回到呼起产品界面
-            //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            try {
-                startActivity(intent);
-            } catch (Exception e) {
-                Toast.makeText(this, "未安装QQ或安装的版本不支持", Toast.LENGTH_LONG).show();
-            }
+            web("BL");
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    public void web(String type)
+    {
+        String url="http://bluno.tk";
+        switch (type)
+        {
+            case "BL":
+                url += "";
+                break;
 
+        }
+
+        Intent intent= new Intent();
+        intent.setAction("android.intent.action.VIEW");
+        Uri content_url = Uri.parse(url);
+        intent.setData(content_url);
+        startActivity(intent);
+    }
     public Boolean checklogin() {
         Boolean connected = Varinfo.connected;
         if (!connected) {
             Toast.makeText(this, getString(R.string.drawer_notconnected), Toast.LENGTH_LONG).show();
             Page(new ConnectFragment());
         }
-        return connected;
+        return true;
 //        //调试
 //        return true;
     }
